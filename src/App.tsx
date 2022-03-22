@@ -11,8 +11,8 @@ const App: FC = () => {
 
       <div className={classes.container}>
         <div>
-          <Navbar></Navbar>
-          <Profile></Profile>
+          <Navbar />
+          <Profile />
         </div>
       </div>
     </div>
