@@ -1,0 +1,16 @@
+.Navbar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 20%;
+  margin-right: 10px;
+  height: 100%;
+  border-radius: 5px;
+  background: blue;
+
+  div {
+    a {
+      color: #fff;
+    }
+  }
+}
