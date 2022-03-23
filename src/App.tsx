@@ -1,8 +1,10 @@
 import { FC } from "react";
+import { Route, Routes } from "react-router-dom";
 import classes from "./App.module.scss";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
+import Users from "./components/Users/Users";
 
 const App: FC = () => {
   return (
@@ -12,7 +14,11 @@ const App: FC = () => {
       <div className={classes.container}>
         <div>
           <Navbar />
-          <Profile />
+
+          <Routes>
+            <Route path="/users" element={<Users/>} />
+            <Route path="/" element={<Profile/>} />
+          </Routes>
         </div>
       </div>
     </div>

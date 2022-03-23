@@ -1,15 +1,17 @@
 import { FC } from "react";
-import { NavLink } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import classes from "./Navbar.module.scss";
 
 const Navbar: FC = () => {
+  const navigate = useNavigate()
+
   return (
     <div className={classes.Navbar}>
-      <div>
-        <NavLink to="/profile">Профиль</NavLink>
+      <div onClick={() => navigate("/")}>
+        Профиль
       </div>
-      <div>
-        <NavLink to="/users">Пользователи</NavLink>
+      <div onClick={() => navigate("users")}>
+        Пользователи
       </div>
     </div>
   );
