@@ -1,5 +1,12 @@
 .Users {
   width: 100%;
   border-radius: 5px;
-  border: 2px solid #000;
+  background: #333336;
+  color: #fff;
+  padding: 18px 28px;
+
+  > strong {
+    font-size: 14px;
+    padding-left: 6px;
+  }
 }

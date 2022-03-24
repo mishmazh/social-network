@@ -5,7 +5,7 @@ import { applyMiddleware, compose, createStore } from "redux";
 import thunk from "redux-thunk";
 import App from "./App";
 import "./index.scss";
-import rootReducer from "./store/rootReducer";
+import { rootReducer } from "./store/rootReducer";
 
 declare global {
   interface Window {

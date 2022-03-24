@@ -1,0 +1,37 @@
+.UserItem {
+  display: flex;
+  padding-top: 15px;
+
+  .userPhoto {
+    margin-right: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .descBlock {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 7px;
+
+    .name {
+      font-size: 18px;
+      padding-bottom: 5px;
+
+      strong {
+        cursor: pointer;
+      }
+    }
+
+    .status {
+      font-size: 13px;
+    }
+
+    button {
+      padding: 7px 12px;
+      font-size: 13px;
+      border-radius: 5px;
+      color: #000;
+    }
+  }
+}

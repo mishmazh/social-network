@@ -8,7 +8,7 @@ const initialState: UsersState = {
   users: [],
   totalUsersCount: 0,
   error: "",
-  isLoading: true,
+  isLoading: false,
 };
 
 const usersReducer = (
@@ -16,10 +16,12 @@ const usersReducer = (
   action: UsersAction
 ): UsersState => {
   switch (action.type) {
+    case UsersActionTypes.SET_LOADING:
+      return { ...state, isLoading: true };
     case UsersActionTypes.FETCH_USERS:
-      return { ...state, users: action.payload };
-    case UsersActionTypes.FETCH_USERS_SUCCESS:
-      return { ...state, isLoading: false };
+      return { ...state, users: action.payload, isLoading: false };
+    case UsersActionTypes.SET_TOTAL_USERS_COUNT:
+      return { ...state, totalUsersCount: action.payload };
     default:
       return state;
   }
