@@ -7,6 +7,8 @@ import {
 const initialState: UsersState = {
   users: [],
   totalUsersCount: 0,
+  currentPage: 1,
+  pageSize: 10,
   error: "",
   isLoading: false,
 };
@@ -22,6 +24,8 @@ const usersReducer = (
       return { ...state, users: action.payload, isLoading: false };
     case UsersActionTypes.SET_TOTAL_USERS_COUNT:
       return { ...state, totalUsersCount: action.payload };
+    case UsersActionTypes.SET_CURRENT_PAGE:
+      return { ...state, currentPage: action.payload };
     default:
       return state;
   }
