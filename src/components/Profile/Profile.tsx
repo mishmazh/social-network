@@ -7,27 +7,31 @@ import userAvatar from "../../assets/noUserAvatar.png";
 
 const Profile: FC = () => {
   const { userId } = useParams();
-  const { profileData } = useTypedSelector((state) => state.profilePage);
-  const { fetchUserProfile } = useActions();
+  const { profileData, status } = useTypedSelector(
+    (state) => state.profilePage
+  );
+  const { fetchUserProfile, fetchStatus } = useActions();
 
   useEffect(() => {
     fetchUserProfile(userId);
+    fetchStatus(userId);
   }, []);
 
   return (
     <div className={classes.Profile}>
       <div className={classes.avatarBlock}>
-        <img
-          src={
-            profileData.photos.large != null
-              ? profileData.photos.large
-              : userAvatar
-          }
-          alt="userAvatar"
-        />
+        {/*<img*/}
+        {/*  src={*/}
+        {/*    profileData.photos.large != null*/}
+        {/*      ? profileData.photos.large*/}
+        {/*      : userAvatar*/}
+        {/*  }*/}
+        {/*  alt="userAvatar"*/}
+        {/*/>*/}
       </div>
       <div className={classes.descBlock}>
         <div className={classes.fullName}>{profileData.fullName}</div>
+        {status}
       </div>
     </div>
   );

@@ -25,12 +25,12 @@ export interface IProfileData {
 
 export interface ProfileState {
   profileData: IProfileData;
-  // status: string;
+  status: string;
 }
 
 export enum ProfileActionTypes {
   SET_USER_PROFILE = "SET_USER_PROFILE",
-  // SET_STATUS = "SET_STATUS",
+  SET_STATUS = "SET_STATUS",
 }
 
 interface SetUserProfileAction {
@@ -38,10 +38,9 @@ interface SetUserProfileAction {
   payload: IProfileData;
 }
 
-// interface SetStatusAction {
-//   type: ProfileActionTypes.SET_STATUS;
-//   payload: string;
-// }
+interface SetStatusAction {
+  type: ProfileActionTypes.SET_STATUS;
+  payload: string;
+}
 
-export type ProfileAction = SetUserProfileAction;
-// | SetStatusAction;
+export type ProfileAction = SetUserProfileAction | SetStatusAction;

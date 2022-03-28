@@ -6,30 +6,30 @@ import {
   ProfileActionTypes,
 } from "../../types/profileTypes";
 
-export const fetchUserProfile = (userId: string | undefined) => {
-  return async (dispatch: Dispatch<ProfileAction>) => {
+export const fetchUserProfile =
+  (userId: string | undefined) => async (dispatch: Dispatch<ProfileAction>) => {
     const response = await axios.get(
       `https://social-network.samuraijs.com/api/1.0/profile/${userId}`
     );
 
     dispatch(setUserProfile(response.data));
+    console.log(response.data);
   };
-};
 
-const setUserProfile = (profileData: IProfileData) => {
+const setUserProfile = (profileData: IProfileData): ProfileAction => {
   return { type: ProfileActionTypes.SET_USER_PROFILE, payload: profileData };
 };
 
-// export const fetchStatus = (userId: string | undefined) => {
-//   return async (dispatch: Dispatch<ProfileAction>) => {
-//     const response = await axios.get(
-//       `https://social-network.samuraijs.com/api/1.0/profile/status/${userId}`
-//     );
+export const fetchStatus = (userId: string | undefined) => {
+  return async (dispatch: Dispatch<ProfileAction>) => {
+    const response = await axios.get(
+      `https://social-network.samuraijs.com/api/1.0/profile/status/${userId}`
+    );
 
-//     dispatch(setStatus(response.data));
-//   };
-// };
+    dispatch(setStatus(response.data));
+  };
+};
 
-// const setStatus = (status: string) => {
-//   return { type: ProfileActionTypes.SET_STATUS, payload: status };
-// };
+const setStatus = (status: string): ProfileAction => {
+  return { type: ProfileActionTypes.SET_STATUS, payload: status };
+};

@@ -7,7 +7,7 @@ import {
 
 const initialState: ProfileState = {
   profileData: <IProfileData>{},
-  // status: "",
+  status: "",
 };
 
 const profileReducer = (
@@ -17,8 +17,8 @@ const profileReducer = (
   switch (action.type) {
     case ProfileActionTypes.SET_USER_PROFILE:
       return { ...state, profileData: action.payload };
-    // case ProfileActionTypes.SET_STATUS:
-    //   return { ...state, status: action.payload };
+    case ProfileActionTypes.SET_STATUS:
+      return { ...state, status: action.payload };
     default:
       return state;
   }
