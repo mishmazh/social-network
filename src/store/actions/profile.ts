@@ -20,15 +20,14 @@ const setUserProfile = (profileData: IProfileData): ProfileAction => {
   return { type: ProfileActionTypes.SET_USER_PROFILE, payload: profileData };
 };
 
-export const fetchStatus = (userId: string | undefined) => {
-  return async (dispatch: Dispatch<ProfileAction>) => {
+export const fetchStatus =
+  (userId: string | undefined) => async (dispatch: Dispatch<ProfileAction>) => {
     const response = await axios.get(
       `https://social-network.samuraijs.com/api/1.0/profile/status/${userId}`
     );
 
     dispatch(setStatus(response.data));
   };
-};
 
 const setStatus = (status: string): ProfileAction => {
   return { type: ProfileActionTypes.SET_STATUS, payload: status };

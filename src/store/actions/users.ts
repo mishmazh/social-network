@@ -2,8 +2,9 @@ import axios from "axios";
 import { Dispatch } from "react";
 import { IUser, UsersAction, UsersActionTypes } from "../../types/usersTypes";
 
-export const fetchUsers = (currentPage: number, pageSize: number) => {
-  return async (dispatch: Dispatch<UsersAction>) => {
+export const fetchUsers =
+  (currentPage: number, pageSize: number) =>
+  async (dispatch: Dispatch<UsersAction>) => {
     dispatch(setLoading());
     dispatch(setCurrentPage(currentPage));
 
@@ -15,7 +16,6 @@ export const fetchUsers = (currentPage: number, pageSize: number) => {
     dispatch(setTotalUsersCount(data.totalCount));
     dispatch(setUsers(data.items));
   };
-};
 
 const setUsers = (users: IUser[]): UsersAction => {
   return { type: UsersActionTypes.SET_USERS, payload: users };
