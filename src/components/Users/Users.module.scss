@@ -5,8 +5,12 @@
   color: #fff;
   padding: 18px 28px;
 
-  > strong {
-    font-size: 14px;
-    padding-left: 6px;
+  .peopleCount {
+    font-size: 13px;
+    padding-left: 2px;
+
+    strong {
+      padding-left: 6px;
+    }
   }
 }

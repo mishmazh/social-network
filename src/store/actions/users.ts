@@ -18,7 +18,7 @@ export const fetchUsers = (currentPage: number, pageSize: number) => {
 };
 
 const setUsers = (users: IUser[]): UsersAction => {
-  return { type: UsersActionTypes.FETCH_USERS, payload: users };
+  return { type: UsersActionTypes.SET_USERS, payload: users };
 };
 
 const setLoading = (): UsersAction => {

@@ -16,8 +16,8 @@ const App: FC = () => {
           <Navbar />
 
           <Routes>
-            <Route path="/users" element={<Users/>} />
-            <Route path="/" element={<Profile/>} />
+            <Route path="/users" element={<Users />} />
+            <Route path="/profile/:userId" element={<Profile />} />
           </Routes>
         </div>
       </div>

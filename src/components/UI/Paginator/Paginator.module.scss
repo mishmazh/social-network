@@ -1,0 +1,36 @@
+.Paginator {
+  display: flex;
+  padding-bottom: 24px;
+  font-size: 13px;
+  color: #000;
+
+  button {
+    width: 34px;
+    background: transparent;
+    transition: 0.2s;
+
+    &:hover {
+      color: #fff;
+      background: #333336;
+    }
+  }
+
+  > div {
+    display: flex;
+    background: #fff;
+    border-radius: 5px;
+
+    .pageItem {
+      display: flex;
+      align-items: center;
+      padding: 4px 9px;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover {
+        color: #fff;
+        background: #333336;
+      }
+    }
+  }
+}

@@ -3,13 +3,18 @@
   flex-direction: column;
   width: 100%;
   max-width: 160px;
-  margin-right: 10px;
-  border-radius: 5px;
+  font-size: 15px;
+  padding-right: 9px;
 
   div {
-    padding-bottom: 10px;
-    border-radius: 5px;
+    padding: 7px 8px;
+    border-radius: 4px;
     color: #fff;
     cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      background: #333336;
+    }
   }
 }

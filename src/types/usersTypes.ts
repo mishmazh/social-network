@@ -22,7 +22,7 @@ export interface UsersState {
 
 export enum UsersActionTypes {
   SET_LOADING = "SET_LOADING",
-  FETCH_USERS = "FETCH_USERS",
+  SET_USERS = "SET_USERS",
   SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT",
   SET_CURRENT_PAGE = "SET_CURRENT_PAGE",
 }
@@ -31,8 +31,8 @@ interface SetLoadingAction {
   type: UsersActionTypes.SET_LOADING;
 }
 
-interface FetchUsersAction {
-  type: UsersActionTypes.FETCH_USERS;
+interface SetUsersAction {
+  type: UsersActionTypes.SET_USERS;
   payload: IUser[];
 }
 
@@ -48,6 +48,6 @@ interface SetCurrentPageAction {
 
 export type UsersAction =
   | SetLoadingAction
-  | FetchUsersAction
+  | SetUsersAction
   | SetTotalUsersCountAction
   | SetCurrentPageAction;
