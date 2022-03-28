@@ -11,7 +11,7 @@ export const fetchUsers = () => {
     );
     const data = response.data;
 
-    dispatch(setTotalUsersCount(data.totalCount))
+    dispatch(setTotalUsersCount(data.totalCount));
 
     dispatch({
       type: UsersActionTypes.FETCH_USERS,
@@ -21,9 +21,9 @@ export const fetchUsers = () => {
 };
 
 const setLoading = (): UsersAction => {
-  return { type: UsersActionTypes.SET_LOADING }
-}
+  return { type: UsersActionTypes.SET_LOADING };
+};
 
 const setTotalUsersCount = (usersCount: number): UsersAction => {
-  return { type: UsersActionTypes.SET_TOTAL_USERS_COUNT, payload: usersCount}
-}
+  return { type: UsersActionTypes.SET_TOTAL_USERS_COUNT, payload: usersCount };
+};
