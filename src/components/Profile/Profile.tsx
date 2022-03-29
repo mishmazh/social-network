@@ -3,11 +3,12 @@ import { useParams } from "react-router-dom";
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import classes from "./Profile.module.scss";
-import userAvatar from "../../assets/noUserAvatar.png";
+import Loader from "../UI/Loader/Loader";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile: FC = () => {
-  const { userId } = useParams<{ userId: string }>();
-  const { profileData, status } = useTypedSelector(
+  const { userId } = useParams();
+  const { profileData, status, isLoading } = useTypedSelector(
     (state) => state.profilePage
   );
   const { fetchUserProfile, fetchStatus } = useActions();
@@ -17,24 +18,7 @@ const Profile: FC = () => {
     fetchStatus(userId);
   }, []);
 
-  return (
-    <div className={classes.Profile}>
-      <div className={classes.avatarBlock}>
-        {/*<img*/}
-        {/*  src={*/}
-        {/*    profileData.photos.large != null*/}
-        {/*      ? profileData.photos.large*/}
-        {/*      : userAvatar*/}
-        {/*  }*/}
-        {/*  alt="userAvatar"*/}
-        {/*/>*/}
-      </div>
-      <div className={classes.descBlock}>
-        <div className={classes.fullName}>{profileData.fullName}</div>
-        {status}
-      </div>
-    </div>
-  );
+  return <ProfileInfo profileData={profileData} status={status} />;
 };
 
 export default Profile;

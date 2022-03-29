@@ -1,6 +1,11 @@
 import axios from "axios";
 import { Dispatch } from "react";
-import { IUser, UsersAction, UsersActionTypes } from "../../types/usersTypes";
+import {
+  IUser,
+  IUsersData,
+  UsersAction,
+  UsersActionTypes,
+} from "../../types/usersTypes";
 
 export const fetchUsers =
   (currentPage: number, pageSize: number) =>
@@ -8,7 +13,7 @@ export const fetchUsers =
     dispatch(setLoading());
     dispatch(setCurrentPage(currentPage));
 
-    const response = await axios.get(
+    const response = await axios.get<IUsersData>(
       `https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`
     );
     const data = response.data;

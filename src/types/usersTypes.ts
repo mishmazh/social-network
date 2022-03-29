@@ -1,14 +1,20 @@
 export interface IPhotos {
-  small?: string;
-  large?: string;
+  small: string | null;
+  large: string | null;
 }
 
 export interface IUser {
   id: number;
   name: string;
   photos: IPhotos;
-  status?: string;
+  status: string | null;
   followed: boolean;
+}
+
+export interface IUsersData {
+  items: IUser[];
+  totalCount: number;
+  error: string | null;
 }
 
 export interface UsersState {
@@ -16,7 +22,7 @@ export interface UsersState {
   totalUsersCount: number;
   currentPage: number;
   pageSize: number;
-  error?: string;
+  error: string;
   isLoading: boolean;
 }
 
