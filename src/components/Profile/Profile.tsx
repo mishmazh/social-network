@@ -6,7 +6,7 @@ import classes from "./Profile.module.scss";
 import userAvatar from "../../assets/noUserAvatar.png";
 
 const Profile: FC = () => {
-  const { userId } = useParams();
+  const { userId } = useParams<{ userId: string }>();
   const { profileData, status } = useTypedSelector(
     (state) => state.profilePage
   );

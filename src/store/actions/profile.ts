@@ -8,7 +8,7 @@ import {
 
 export const fetchUserProfile =
   (userId: string | undefined) => async (dispatch: Dispatch<ProfileAction>) => {
-    const response = await axios.get(
+    const response = await axios.get<IProfileData>(
       `https://social-network.samuraijs.com/api/1.0/profile/${userId}`
     );
 
