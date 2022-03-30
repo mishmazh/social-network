@@ -1,0 +1,31 @@
+.Form {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  width: 55%;
+  padding: 30px 25px;
+
+  .title {
+    font-size: 20px;
+    padding-bottom: 15px;
+  }
+
+  input {
+    margin-top: 15px;
+  }
+
+  button {
+    margin-top: 18px;
+    font-size: 14px;
+    border-radius: 5px;
+    width: 30%;
+    height: 40px;
+    color: #ffffff;
+    background: #4a707a;
+  }
+
+  .rememberMe {
+    padding-left: 3px;
+    font-size: 13px;
+  }
+}

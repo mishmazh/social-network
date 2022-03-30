@@ -1,6 +1,7 @@
 import { FC, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import classes from "./App.module.scss";
+import Auth from "./components/Auth/Auth";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
@@ -9,12 +10,34 @@ import { useActions } from "./hooks/useActions";
 import { useTypedSelector } from "./hooks/useTypedSelector";
 
 const App: FC = () => {
-  const { login, isAuth } = useTypedSelector((state) => state.auth);
+  const { login, isAuth, userId } = useTypedSelector((state) => state.auth);
   const { fetchAuthUserData } = useActions();
 
   useEffect(() => {
     fetchAuthUserData();
   }, []);
+
+  let routes = (
+    <Routes>
+      <Route path="/" element={<Auth />} />
+      <Route path="/users" element={<Navigate to="/" />} />
+      <Route path="/profile/:userId" element={<Navigate to="/" />} />
+    </Routes>
+  );
+
+  if (isAuth) {
+    routes = (
+      <Routes>
+        <Route path="/" element={<Navigate to="/profile" />} />
+        <Route path="/users" element={<Users />} />
+        <Route path="/profile/:userId" element={<Profile />} />
+        <Route
+          path="/profile"
+          element={<Navigate to={`/profile/${userId}`} />}
+        />
+      </Routes>
+    );
+  }
 
   return (
     <div className={classes.Layout}>
@@ -24,10 +47,7 @@ const App: FC = () => {
         <div>
           <Navbar />
 
-          <Routes>
-            <Route path="/users" element={<Users />} />
-            <Route path="/profile/:userId" element={<Profile />} />
-          </Routes>
+          {routes}
         </div>
       </div>
     </div>
