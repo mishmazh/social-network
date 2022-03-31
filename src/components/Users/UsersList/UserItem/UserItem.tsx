@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
-import { IUser } from "../../../types/usersTypes";
+import { IUser } from "../../../../types/usersTypes";
 import classes from "./UserItem.module.scss";
-import userAvatar from "../../../assets/noUserAvatar.png";
+import userAvatar from "../../../../assets/noUserAvatar.png";
 
 interface UserItemProps {
   user: IUser;

@@ -6,7 +6,7 @@ import {
 } from "../../types/profileTypes";
 
 const initialState: ProfileState = {
-  profileData: <IProfileData>{},
+  profileData: {} as IProfileData,
   status: "",
   isLoading: false,
 };
@@ -17,7 +17,7 @@ const profileReducer = (
 ): ProfileState => {
   switch (action.type) {
     case ProfileActionTypes.SET_USER_PROFILE:
-      return { ...state, profileData: action.payload, isLoading: false };
+      return { ...state, profileData: action.payload };
     case ProfileActionTypes.SET_STATUS:
       return { ...state, status: action.payload, isLoading: false };
     case ProfileActionTypes.SET_LOADING:

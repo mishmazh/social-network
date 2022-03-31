@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Dispatch } from "react";
+import { ThunkDispatch } from "redux-thunk";
 import {
   IProfileData,
   ProfileAction,
@@ -7,7 +8,8 @@ import {
 } from "../../types/profileTypes";
 
 export const fetchUserProfile =
-  (userId: string | undefined) => async (dispatch: Dispatch<ProfileAction>) => {
+  (userId: string | undefined) =>
+  async (dispatch: ThunkDispatch<{}, {}, ProfileAction>) => {
     dispatch(setLoading());
 
     const response = await axios.get<IProfileData>(
@@ -15,6 +17,7 @@ export const fetchUserProfile =
     );
 
     dispatch(setUserProfile(response.data));
+    dispatch(fetchStatus(userId));
   };
 
 const setUserProfile = (profileData: IProfileData): ProfileAction => {
