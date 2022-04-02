@@ -6,15 +6,14 @@ import {
   ProfileAction,
   ProfileActionTypes,
 } from "../../types/profileTypes";
+import { profileApi } from "../../api/api";
 
 export const fetchUserProfile =
   (userId: string | undefined) =>
   async (dispatch: ThunkDispatch<{}, {}, ProfileAction>) => {
     dispatch(setLoading());
 
-    const response = await axios.get<IProfileData>(
-      `https://social-network.samuraijs.com/api/1.0/profile/${userId}`
-    );
+    const response = await profileApi.fetchProfile(userId);
 
     dispatch(setUserProfile(response.data));
     dispatch(fetchStatus(userId));

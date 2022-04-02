@@ -20,7 +20,7 @@ const Profile: FC = () => {
   return (
     <div className={classes.Profile}>
       {isLoading ? (
-        <Loader></Loader>
+        <Loader />
       ) : (
         <ProfileInfo profileData={profileData} status={status} />
       )}

@@ -1,22 +1,15 @@
-import axios from "axios";
 import { Dispatch } from "react";
-import { AnyAction } from "redux";
 import { ThunkDispatch } from "redux-thunk";
 import {
   AuthAction,
   AuthActionTypes,
   IAuthFormValues,
-  IAuthLoginData,
-  IAuthLogoutData,
-  IAuthMeData,
 } from "../../types/authTypes";
+import { authApi } from "../../api/api";
 
 export const fetchAuthUserData =
   () => async (dispatch: Dispatch<AuthAction>) => {
-    const response = await axios.get<IAuthMeData>(
-      "https://social-network.samuraijs.com/api/1.0/auth/me",
-      { withCredentials: true }
-    );
+    const response = await authApi.me();
     const data = response.data;
 
     if (data.resultCode === 0) {
@@ -40,11 +33,7 @@ const setAuthUserData = (
 export const authAttempt =
   (values: IAuthFormValues) =>
   async (dispatch: ThunkDispatch<{}, {}, AuthAction>) => {
-    const response = await axios.post<IAuthLoginData>(
-      "https://social-network.samuraijs.com/api/1.0/auth/login",
-      values,
-      { withCredentials: true }
-    );
+    const response = await authApi.login(values);
     const data = response.data;
 
     if (data.resultCode === 0) {
@@ -53,10 +42,7 @@ export const authAttempt =
   };
 
 export const logoutAttempt = () => async (dispatch: Dispatch<AuthAction>) => {
-  const response = await axios.delete<IAuthLogoutData>(
-    "https://social-network.samuraijs.com/api/1.0/auth/login",
-    { withCredentials: true }
-  );
+  const response = await authApi.logout();
 
   if (response.data.resultCode === 0) {
     dispatch(setAuthUserData(null, null, null, false));
