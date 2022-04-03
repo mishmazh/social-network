@@ -21,7 +21,7 @@ const App: FC = () => {
     <Routes>
       <Route path="/" element={<Auth />} />
       <Route path="/users" element={<Navigate to="/" />} />
-      <Route path="/profile/:userId" element={<Navigate to="/" />} />
+      <Route path="/profile/:userProfileId" element={<Navigate to="/" />} />
     </Routes>
   );
 
@@ -30,7 +30,7 @@ const App: FC = () => {
       <Routes>
         <Route path="/" element={<Navigate to="/profile" />} />
         <Route path="/users" element={<Users />} />
-        <Route path="/profile/:userId" element={<Profile />} />
+        <Route path="/profile/:userProfileId" element={<Profile />} />
         <Route
           path="/profile"
           element={<Navigate to={`/profile/${userId}`} />}

@@ -1,4 +1,5 @@
 import { ChangeEvent, FC, useState } from "react";
+import classes from "./ProfileStatus.module.scss";
 
 interface ProfileStatusProps {
   profileStatus: string;
@@ -12,30 +13,33 @@ const ProfileStatus: FC<ProfileStatusProps> = ({
   const [status, setStatus] = useState<string>(profileStatus);
   const [isEditMode, setEditMode] = useState<boolean>(false);
 
-  const setEditModeHandler = () => {
+  const editModeOn = () => {
     setEditMode(true);
   };
 
-  const changeProfileStatus = (e: ChangeEvent<HTMLInputElement>) => {
+  const editModeOff = () => {
+    updateStatus(status);
+    setEditMode(false);
+  };
+
+  const onChangeStatus = (e: ChangeEvent<HTMLInputElement>) => {
     setStatus(e.target.value);
   };
 
-  console.log(status);
   return (
-    <div onClick={setEditModeHandler}>
+    <div className={classes.ProfileStatus}>
       {isEditMode ? (
         <div>
           <input
             type="text"
-            onChange={changeProfileStatus}
+            onChange={onChangeStatus}
             value={status}
-            // onBlur={() => setEditMode(false)}
             autoFocus={true}
           />
-          <button onClick={() => updateStatus(status)}>Сохранить</button>
+          <button onClick={editModeOff}>Сохранить</button>
         </div>
       ) : (
-        profileStatus
+        <div onClick={editModeOn}>{status}</div>
       )}
     </div>
   );

@@ -7,14 +7,14 @@ import classes from "./Profile.module.scss";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile: FC = () => {
-  const { userId } = useParams();
+  const { userProfileId } = useParams();
   const { profileData, profileStatus, isLoading } = useTypedSelector(
     (state) => state.profilePage
   );
   const { fetchProfile, updateStatus } = useActions();
 
   useEffect(() => {
-    fetchProfile(userId);
+    fetchProfile(userProfileId);
   }, []);
 
   return (
