@@ -7,7 +7,7 @@ interface InputProps {
   label?: string;
   type: string;
   name: string;
-  placeholder: string;
+  placeholder?: string;
 }
 
 const Input: FC<InputProps> = ({ label, name, ...props }) => {

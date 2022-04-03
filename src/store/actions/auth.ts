@@ -9,7 +9,7 @@ import { authApi } from "../../api/api";
 
 export const fetchAuthUserData =
   () => async (dispatch: Dispatch<AuthAction>) => {
-    const response = await authApi.me();
+    const response = await authApi.authMe();
     const data = response.data;
 
     if (data.resultCode === 0) {
@@ -30,7 +30,7 @@ const setAuthUserData = (
   };
 };
 
-export const authAttempt =
+export const loginAttempt =
   (values: IAuthFormValues) =>
   async (dispatch: ThunkDispatch<{}, {}, AuthAction>) => {
     const response = await authApi.login(values);

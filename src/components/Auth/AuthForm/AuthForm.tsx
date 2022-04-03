@@ -3,7 +3,6 @@ import { FC } from "react";
 import classes from "./AuthForm.module.scss";
 import { IAuthFormValidation, IAuthFormValues } from "../../../types/authTypes";
 import Input from "../../UI/Input/Input";
-import Loader from "../../UI/Loader/Loader";
 import * as Yup from "yup";
 
 interface AuthFormProps {

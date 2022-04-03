@@ -1,4 +1,3 @@
-import axios from "axios";
 import { Dispatch } from "react";
 import { ThunkDispatch } from "redux-thunk";
 import {
@@ -6,34 +5,44 @@ import {
   ProfileAction,
   ProfileActionTypes,
 } from "../../types/profileTypes";
-import { profileApi } from "../../api/api";
+import { profilePageApi } from "../../api/api";
 
-export const fetchUserProfile =
+// ---------- Profile page ---------- //
+export const fetchProfile =
   (userId: string | undefined) =>
   async (dispatch: ThunkDispatch<{}, {}, ProfileAction>) => {
-    dispatch(setLoading());
+    dispatch(setLoading(true));
+    const response = await profilePageApi.fetchProfile(userId);
 
-    const response = await profileApi.fetchProfile(userId);
+    dispatch(setProfile(response.data));
+    await dispatch(fetchStatus(userId));
 
-    dispatch(setUserProfile(response.data));
-    dispatch(fetchStatus(userId));
+    dispatch(setLoading(false));
   };
 
-const setUserProfile = (profileData: IProfileData): ProfileAction => {
-  return { type: ProfileActionTypes.SET_USER_PROFILE, payload: profileData };
+const setProfile = (profileData: IProfileData): ProfileAction => {
+  return { type: ProfileActionTypes.SET_PROFILE, payload: profileData };
 };
 
-const setLoading = (): ProfileAction => {
-  return { type: ProfileActionTypes.SET_LOADING };
+const setLoading = (isLoading: boolean): ProfileAction => {
+  return { type: ProfileActionTypes.SET_LOADING, payload: isLoading };
 };
 
+// ---------- Profile status ---------- //
 export const fetchStatus =
   (userId: string | undefined) => async (dispatch: Dispatch<ProfileAction>) => {
-    const response = await axios.get<string>(
-      `https://social-network.samuraijs.com/api/1.0/profile/status/${userId}`
-    );
+    const response = await profilePageApi.fetchStatus(userId);
 
     dispatch(setStatus(response.data));
+  };
+
+export const updateStatus =
+  (status: string) => async (dispatch: Dispatch<ProfileAction>) => {
+    const response = await profilePageApi.updateStatus(status);
+
+    if (response.data.resultCode === 0) {
+      dispatch(setStatus(status));
+    }
   };
 
 const setStatus = (status: string): ProfileAction => {

@@ -9,7 +9,6 @@ const initialState: UsersState = {
   totalUsersCount: 0,
   currentPage: 1,
   pageSize: 10,
-  error: "",
   isLoading: false,
 };
 
@@ -19,9 +18,9 @@ const usersReducer = (
 ): UsersState => {
   switch (action.type) {
     case UsersActionTypes.SET_LOADING:
-      return { ...state, isLoading: true };
+      return { ...state, isLoading: action.payload };
     case UsersActionTypes.SET_USERS:
-      return { ...state, users: action.payload, isLoading: false };
+      return { ...state, users: action.payload };
     case UsersActionTypes.SET_TOTAL_USERS_COUNT:
       return { ...state, totalUsersCount: action.payload };
     case UsersActionTypes.SET_CURRENT_PAGE:

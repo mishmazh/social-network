@@ -32,7 +32,7 @@ export interface IAuthLoginData {
 }
 
 export interface IAuthLogoutData {
-  data: object;
+  data: {};
   fieldsErrors: string[];
   messages: string[];
   resultCode: number;

@@ -24,20 +24,26 @@ export interface IProfileData {
   photos: IPhotos;
 }
 
+export interface IProfileStatusData {
+  resultCode: number;
+  messages: string[];
+  data: {};
+}
+
 export interface ProfileState {
   profileData: IProfileData;
-  status: string;
+  profileStatus: string;
   isLoading: boolean;
 }
 
 export enum ProfileActionTypes {
-  SET_USER_PROFILE = "SET_USER_PROFILE",
+  SET_PROFILE = "SET_PROFILE",
   SET_STATUS = "SET_STATUS",
   SET_LOADING = "SET_LOADING",
 }
 
-interface SetUserProfileAction {
-  type: ProfileActionTypes.SET_USER_PROFILE;
+interface SetProfileAction {
+  type: ProfileActionTypes.SET_PROFILE;
   payload: IProfileData;
 }
 
@@ -48,9 +54,10 @@ interface SetStatusAction {
 
 interface SetLoadingAction {
   type: ProfileActionTypes.SET_LOADING;
+  payload: boolean;
 }
 
 export type ProfileAction =
-  | SetUserProfileAction
+  | SetProfileAction
   | SetStatusAction
   | SetLoadingAction;

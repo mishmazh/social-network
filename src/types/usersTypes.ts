@@ -22,7 +22,6 @@ export interface UsersState {
   totalUsersCount: number;
   currentPage: number;
   pageSize: number;
-  error: string;
   isLoading: boolean;
 }
 
@@ -35,6 +34,7 @@ export enum UsersActionTypes {
 
 interface SetLoadingAction {
   type: UsersActionTypes.SET_LOADING;
+  payload: boolean;
 }
 
 interface SetUsersAction {

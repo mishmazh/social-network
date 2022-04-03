@@ -6,7 +6,7 @@ import { IAuthFormValidation, IAuthFormValues } from "../../types/authTypes";
 import { useActions } from "../../hooks/useActions";
 
 const Auth: FC = () => {
-  const { authAttempt } = useActions();
+  const { loginAttempt } = useActions();
 
   const initialValues: IAuthFormValues = {
     email: "",
@@ -22,7 +22,7 @@ const Auth: FC = () => {
   });
 
   const onSubmit = (values: IAuthFormValues) => {
-    authAttempt(values);
+    loginAttempt(values);
   };
 
   return (

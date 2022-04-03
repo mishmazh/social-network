@@ -1,33 +1,28 @@
-import axios from "axios";
 import { Dispatch } from "react";
-import {
-  IUser,
-  IUsersData,
-  UsersAction,
-  UsersActionTypes,
-} from "../../types/usersTypes";
+import { IUser, UsersAction, UsersActionTypes } from "../../types/usersTypes";
+import { usersPageApi } from "../../api/api";
 
 export const fetchUsers =
   (currentPage: number, pageSize: number) =>
   async (dispatch: Dispatch<UsersAction>) => {
-    dispatch(setLoading());
+    dispatch(setLoading(true));
     dispatch(setCurrentPage(currentPage));
 
-    const response = await axios.get<IUsersData>(
-      `https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`
-    );
+    const response = await usersPageApi.fetchUsers(currentPage, pageSize);
     const data = response.data;
 
     dispatch(setTotalUsersCount(data.totalCount));
     dispatch(setUsers(data.items));
+
+    dispatch(setLoading(false));
   };
 
 const setUsers = (users: IUser[]): UsersAction => {
   return { type: UsersActionTypes.SET_USERS, payload: users };
 };
 
-const setLoading = (): UsersAction => {
-  return { type: UsersActionTypes.SET_LOADING };
+const setLoading = (isLoading: boolean): UsersAction => {
+  return { type: UsersActionTypes.SET_LOADING, payload: isLoading };
 };
 
 const setTotalUsersCount = (usersCount: number): UsersAction => {

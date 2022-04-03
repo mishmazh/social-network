@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { IProfileData } from "../../../types/profileTypes";
 import classes from "./LogoutButton.module.scss";
 
 interface LogoutButtonProps {

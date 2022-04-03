@@ -8,13 +8,13 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile: FC = () => {
   const { userId } = useParams();
-  const { profileData, status, isLoading } = useTypedSelector(
+  const { profileData, profileStatus, isLoading } = useTypedSelector(
     (state) => state.profilePage
   );
-  const { fetchUserProfile } = useActions();
+  const { fetchProfile, updateStatus } = useActions();
 
   useEffect(() => {
-    fetchUserProfile(userId);
+    fetchProfile(userId);
   }, []);
 
   return (
@@ -22,7 +22,11 @@ const Profile: FC = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <ProfileInfo profileData={profileData} status={status} />
+        <ProfileInfo
+          profileData={profileData}
+          profileStatus={profileStatus}
+          updateStatus={updateStatus}
+        />
       )}
     </div>
   );

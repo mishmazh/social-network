@@ -2,13 +2,19 @@ import { FC } from "react";
 import { IProfileData } from "../../../types/profileTypes";
 import classes from "./ProfileInfo.module.scss";
 import userAvatar from "../../../assets/noUserAvatar.png";
+import ProfileStatus from "../ProfileStatus/ProfileStatus";
 
 interface ProfileInfoProps {
   profileData: IProfileData;
-  status: string;
+  profileStatus: string;
+  updateStatus: (status: string) => void;
 }
 
-const ProfileInfo: FC<ProfileInfoProps> = ({ profileData, status }) => {
+const ProfileInfo: FC<ProfileInfoProps> = ({
+  profileData,
+  profileStatus,
+  updateStatus,
+}) => {
   return (
     <div className={classes.ProfileInfo}>
       <div className={classes.avatarBlock}>
@@ -23,7 +29,10 @@ const ProfileInfo: FC<ProfileInfoProps> = ({ profileData, status }) => {
       </div>
       <div className={classes.descBlock}>
         <div className={classes.fullName}>{profileData.fullName}</div>
-        {status}
+        <ProfileStatus
+          profileStatus={profileStatus}
+          updateStatus={updateStatus}
+        />
 
         <div className={classes.mainInfo}>
           <p>Основная информация</p>
