@@ -4,6 +4,7 @@ import classes from "./AuthForm.module.scss";
 import { IAuthFormValidation, IAuthFormValues } from "../../../types/authTypes";
 import Input from "../../UI/Input/Input";
 import * as Yup from "yup";
+import Loader from "../../UI/Loader/Loader";
 
 interface AuthFormProps {
   initialValues: IAuthFormValues;
@@ -39,9 +40,11 @@ const AuthForm: FC<AuthFormProps> = ({
               <Checkbox label="Запомнить" name="rememberMe" />
             </div> */}
 
-            <button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "Загрузка..." : "Войти"}
-            </button>
+            {/*<button type="submit" disabled={isSubmitting}>*/}
+            {/*  {isSubmitting ? <Loader /> : "Войти"}*/}
+            {/*</button>*/}
+
+            <button>Войти</button>
           </Form>
         );
       }}

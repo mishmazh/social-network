@@ -6,7 +6,7 @@ import {
   IAuthMeData,
 } from "../types/authTypes";
 import { IProfileData, IProfileStatusData } from "../types/profileTypes";
-import { IUsersData } from "../types/usersTypes";
+import { IFollowingData, IUsersData } from "../types/usersTypes";
 
 const instance = axios.create({
   withCredentials: true,
@@ -45,5 +45,11 @@ export const usersPageApi = {
     return instance.get<IUsersData>(
       `users?page=${currentPage}&count=${pageSize}`
     );
+  },
+  follow(userId: number) {
+    return instance.post<IFollowingData>(`follow/${userId}`);
+  },
+  unfollow(userId: number) {
+    return instance.delete<IFollowingData>(`follow/${userId}`);
   },
 };

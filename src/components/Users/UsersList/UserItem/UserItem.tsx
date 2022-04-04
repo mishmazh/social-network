@@ -6,14 +6,40 @@ import userAvatar from "../../../../assets/noUserAvatar.png";
 
 interface UserItemProps {
   user: IUser;
+  isFollowLoading: number[];
+  followUser: (userId: number) => void;
+  unfollowUser: (userId: number) => void;
 }
 
-const UserItem: FC<UserItemProps> = ({ user }) => {
+const UserItem: FC<UserItemProps> = ({
+  user,
+  isFollowLoading,
+  followUser,
+  unfollowUser,
+}) => {
   const navigate = useNavigate();
 
   const navigateToProfile = () => {
     navigate("/profile/" + user.id);
   };
+
+  const followButton = (
+    <button
+      onClick={() => followUser(user.id)}
+      disabled={isFollowLoading.some((id) => id === user.id)}
+    >
+      Подписаться
+    </button>
+  );
+
+  const unfollowButton = (
+    <button
+      onClick={() => unfollowUser(user.id)}
+      disabled={isFollowLoading.some((id) => id === user.id)}
+    >
+      Отписаться
+    </button>
+  );
 
   return (
     <div className={classes.UserItem}>
@@ -32,9 +58,7 @@ const UserItem: FC<UserItemProps> = ({ user }) => {
           <div className={classes.status}>{user.status}</div>
         </div>
 
-        <div>
-          <button>Подписаться</button>
-        </div>
+        <div>{user.followed ? unfollowButton : followButton}</div>
       </div>
     </div>
   );

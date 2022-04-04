@@ -1,11 +1,12 @@
 import { Dispatch } from "react";
 import { IUser, UsersAction, UsersActionTypes } from "../../types/usersTypes";
 import { usersPageApi } from "../../api/api";
+import { ActionCreator } from "redux";
 
 export const fetchUsers =
   (currentPage: number, pageSize: number) =>
   async (dispatch: Dispatch<UsersAction>) => {
-    dispatch(setLoading(true));
+    dispatch(setPageLoading(true));
     dispatch(setCurrentPage(currentPage));
 
     const response = await usersPageApi.fetchUsers(currentPage, pageSize);
@@ -14,15 +15,15 @@ export const fetchUsers =
     dispatch(setTotalUsersCount(data.totalCount));
     dispatch(setUsers(data.items));
 
-    dispatch(setLoading(false));
+    dispatch(setPageLoading(false));
   };
 
 const setUsers = (users: IUser[]): UsersAction => {
   return { type: UsersActionTypes.SET_USERS, payload: users };
 };
 
-const setLoading = (isLoading: boolean): UsersAction => {
-  return { type: UsersActionTypes.SET_LOADING, payload: isLoading };
+const setPageLoading = (isLoading: boolean): UsersAction => {
+  return { type: UsersActionTypes.SET_PAGE_LOADING, payload: isLoading };
 };
 
 const setTotalUsersCount = (usersCount: number): UsersAction => {
@@ -31,4 +32,57 @@ const setTotalUsersCount = (usersCount: number): UsersAction => {
 
 const setCurrentPage = (currentPage: number): UsersAction => {
   return { type: UsersActionTypes.SET_CURRENT_PAGE, payload: currentPage };
+};
+
+// ---------- FOLLOW-UNFOLLOW ---------- //
+export const followUser =
+  (userId: number) => async (dispatch: Dispatch<UsersAction>) => {
+    await setFollowing(
+      dispatch,
+      userId,
+      usersPageApi.follow,
+      followUserSuccess
+    );
+  };
+
+export const unfollowUser =
+  (userId: number) => async (dispatch: Dispatch<UsersAction>) => {
+    await setFollowing(
+      dispatch,
+      userId,
+      usersPageApi.unfollow,
+      unfollowUserSuccess
+    );
+  };
+
+const setFollowing = async (
+  dispatch: Dispatch<UsersAction>,
+  userId: number,
+  apiMethod: any,
+  actionCreator: ActionCreator<UsersAction>
+) => {
+  dispatch(setFollowLoading(true, userId));
+  const response = await apiMethod(userId);
+
+  if (response.data.resultCode === 0) {
+    dispatch(actionCreator(userId));
+  }
+
+  dispatch(setFollowLoading(false, userId));
+};
+
+const followUserSuccess = (userId: number): UsersAction => {
+  return { type: UsersActionTypes.FOLLOW_USER, payload: userId };
+};
+
+const unfollowUserSuccess = (userId: number): UsersAction => {
+  return { type: UsersActionTypes.UNFOLLOW_USER, payload: userId };
+};
+
+const setFollowLoading = (isLoading: boolean, userId: number): UsersAction => {
+  return {
+    type: UsersActionTypes.SET_FOLLOW_LOADING,
+    isLoading,
+    userId,
+  };
 };

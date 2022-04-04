@@ -17,23 +17,34 @@ export interface IUsersData {
   error: string | null;
 }
 
+export interface IFollowingData {
+  data: {};
+  fieldsErrors: string[];
+  messages: string[];
+  resultCode: number;
+}
+
 export interface UsersState {
   users: IUser[];
   totalUsersCount: number;
   currentPage: number;
   pageSize: number;
-  isLoading: boolean;
+  isPageLoading: boolean;
+  isFollowLoading: number[];
 }
 
 export enum UsersActionTypes {
-  SET_LOADING = "SET_LOADING",
+  SET_PAGE_LOADING = "SET_PAGE_LOADING",
   SET_USERS = "SET_USERS",
   SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT",
   SET_CURRENT_PAGE = "SET_CURRENT_PAGE",
+  FOLLOW_USER = "FOLLOW_USER",
+  UNFOLLOW_USER = "UNFOLLOW_USER",
+  SET_FOLLOW_LOADING = "SET_FOLLOW_LOADING",
 }
 
-interface SetLoadingAction {
-  type: UsersActionTypes.SET_LOADING;
+interface SetPageLoadingAction {
+  type: UsersActionTypes.SET_PAGE_LOADING;
   payload: boolean;
 }
 
@@ -52,8 +63,27 @@ interface SetCurrentPageAction {
   payload: number;
 }
 
+interface followUserAction {
+  type: UsersActionTypes.FOLLOW_USER;
+  payload: number;
+}
+
+interface unfollowUserAction {
+  type: UsersActionTypes.UNFOLLOW_USER;
+  payload: number;
+}
+
+interface SetFollowLoadingAction {
+  type: UsersActionTypes.SET_FOLLOW_LOADING;
+  isLoading: boolean;
+  userId: number;
+}
+
 export type UsersAction =
-  | SetLoadingAction
+  | SetPageLoadingAction
   | SetUsersAction
   | SetTotalUsersCountAction
-  | SetCurrentPageAction;
+  | SetCurrentPageAction
+  | followUserAction
+  | unfollowUserAction
+  | SetFollowLoadingAction;

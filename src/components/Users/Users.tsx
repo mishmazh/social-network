@@ -7,9 +7,16 @@ import Loader from "../UI/Loader/Loader";
 import UsersList from "./UsersList/UsersList";
 
 const Users: FC = () => {
-  const { users, totalUsersCount, currentPage, pageSize, isLoading } =
-    useTypedSelector((state) => state.usersPage);
-  const { fetchUsers } = useActions();
+  const {
+    users,
+    totalUsersCount,
+    currentPage,
+    pageSize,
+    isPageLoading,
+    isFollowLoading,
+  } = useTypedSelector((state) => state.usersPage);
+
+  const { fetchUsers, followUser, unfollowUser } = useActions();
 
   useEffect(() => {
     fetchUsers(currentPage, pageSize);
@@ -26,10 +33,16 @@ const Users: FC = () => {
         portionSize={10}
         changePage={changePage}
       />
-      {isLoading ? (
+      {isPageLoading ? (
         <Loader />
       ) : (
-        <UsersList users={users} totalUsersCount={totalUsersCount} />
+        <UsersList
+          users={users}
+          totalUsersCount={totalUsersCount}
+          isFollowLoading={isFollowLoading}
+          followUser={followUser}
+          unfollowUser={unfollowUser}
+        />
       )}
     </div>
   );
