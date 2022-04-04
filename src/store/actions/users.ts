@@ -1,7 +1,13 @@
 import { Dispatch } from "react";
-import { IUser, UsersAction, UsersActionTypes } from "../../types/usersTypes";
+import {
+  IFollowingData,
+  IUser,
+  UsersAction,
+  UsersActionTypes,
+} from "../../types/usersTypes";
 import { usersPageApi } from "../../api/api";
 import { ActionCreator } from "redux";
+import { AxiosPromise } from "axios";
 
 export const fetchUsers =
   (currentPage: number, pageSize: number) =>
@@ -58,7 +64,7 @@ export const unfollowUser =
 const setFollowing = async (
   dispatch: Dispatch<UsersAction>,
   userId: number,
-  apiMethod: any,
+  apiMethod: (userId: number) => AxiosPromise<IFollowingData>,
   actionCreator: ActionCreator<UsersAction>
 ) => {
   dispatch(setFollowLoading(true, userId));
