@@ -5,8 +5,8 @@ import {
   IAuthLogoutData,
   IAuthMeData,
 } from "../types/authTypes";
-import { IProfileData, IProfileStatusData } from "../types/profileTypes";
-import { IFollowingData, IUsersData } from "../types/usersTypes";
+import { IProfileData, IProfileStatusData } from "../types/profilePageTypes";
+import { IFollowingData, IUsersData } from "../types/usersPageTypes";
 
 const instance = axios.create({
   withCredentials: true,

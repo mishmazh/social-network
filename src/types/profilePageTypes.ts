@@ -33,13 +33,15 @@ export interface IProfileStatusData {
 export interface ProfileState {
   profileData: IProfileData;
   profileStatus: string;
+  profileAvatar: string | null;
   isLoading: boolean;
 }
 
 export enum ProfileActionTypes {
-  SET_PROFILE = "SET_PROFILE",
-  SET_STATUS = "SET_STATUS",
-  SET_LOADING = "SET_LOADING",
+  SET_PROFILE = "profile/SET_PROFILE",
+  SET_STATUS = "profile/SET_STATUS",
+  SET_LOADING = "profile/SET_LOADING",
+  SET_AVATAR = "profile/SET_AVATAR",
 }
 
 interface SetProfileAction {
@@ -52,6 +54,11 @@ interface SetStatusAction {
   payload: string;
 }
 
+interface SetAvatarAction {
+  type: ProfileActionTypes.SET_AVATAR;
+  payload: string | null;
+}
+
 interface SetLoadingAction {
   type: ProfileActionTypes.SET_LOADING;
   payload: boolean;
@@ -60,4 +67,5 @@ interface SetLoadingAction {
 export type ProfileAction =
   | SetProfileAction
   | SetStatusAction
+  | SetAvatarAction
   | SetLoadingAction;

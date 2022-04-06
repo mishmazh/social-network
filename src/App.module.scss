@@ -1,20 +1,22 @@
 .Layout {
   font-family: "Inter", sans-serif;
+  padding-bottom: 15px;
   width: 100%;
-  height: 100vh;
-  flex-grow: 1;
-  background: -webkit-linear-gradient(
-    118deg,
-    #615f67,
-    #736f7b,
-    #82898c
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    118deg,
-    #615f67,
-    #736f7b,
-    #82898c
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100%;
+  // flex-grow: 1;
+  background: #DBE4EE;
+  // background: -webkit-linear-gradient(
+  //   118deg,
+  //   #615f67,
+  //   #736f7b,
+  //   #82898c
+  // ); /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(
+  //   118deg,
+  //   #615f67,
+  //   #736f7b,
+  //   #82898c
+  // ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   .container {
     display: flex;

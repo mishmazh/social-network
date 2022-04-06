@@ -8,9 +8,8 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile: FC = () => {
   const { userProfileId } = useParams();
-  const { profileData, profileStatus, isLoading } = useTypedSelector(
-    (state) => state.profilePage
-  );
+  const { profileData, profileStatus, profileAvatar, isLoading } =
+    useTypedSelector((state) => state.profilePage);
   const { fetchProfile, updateStatus } = useActions();
 
   useEffect(() => {
@@ -25,6 +24,7 @@ const Profile: FC = () => {
         <ProfileInfo
           profileData={profileData}
           profileStatus={profileStatus}
+          profileAvatar={profileAvatar}
           updateStatus={updateStatus}
         />
       )}

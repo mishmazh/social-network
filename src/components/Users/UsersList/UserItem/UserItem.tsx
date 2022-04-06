@@ -1,8 +1,10 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
-import { IUser } from "../../../../types/usersTypes";
+import { IUser } from "../../../../types/usersPageTypes";
 import classes from "./UserItem.module.scss";
 import userAvatar from "../../../../assets/noUserAvatar.png";
+import Loader from "../../../UI/Loader/Loader";
+import { sliceString } from "../../../../helpers/stringHelpers";
 
 interface UserItemProps {
   user: IUser;
@@ -28,7 +30,11 @@ const UserItem: FC<UserItemProps> = ({
       onClick={() => followUser(user.id)}
       disabled={isFollowLoading.some((id) => id === user.id)}
     >
-      Подписаться
+      {isFollowLoading.some((id) => id === user.id) ? (
+        <Loader />
+      ) : (
+        "Подписаться"
+      )}
     </button>
   );
 
@@ -37,9 +43,14 @@ const UserItem: FC<UserItemProps> = ({
       onClick={() => unfollowUser(user.id)}
       disabled={isFollowLoading.some((id) => id === user.id)}
     >
-      Отписаться
+      {isFollowLoading.some((id) => id === user.id) ? <Loader /> : "Отписаться"}
     </button>
   );
+
+  // const sliceStatus =
+  //   user.status !== null && user.status.length > 100
+  //     ? user.status.slice(0, -60) + "..."
+  //     : user.status;
 
   return (
     <div className={classes.UserItem}>
@@ -55,7 +66,7 @@ const UserItem: FC<UserItemProps> = ({
           <div className={classes.name}>
             <strong onClick={navigateToProfile}>{user.name}</strong>
           </div>
-          <div className={classes.status}>{user.status}</div>
+          <div className={classes.status}>{sliceString(user.status, 100)}</div>
         </div>
 
         <div>{user.followed ? unfollowButton : followButton}</div>

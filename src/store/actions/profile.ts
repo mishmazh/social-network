@@ -4,7 +4,7 @@ import {
   IProfileData,
   ProfileAction,
   ProfileActionTypes,
-} from "../../types/profileTypes";
+} from "../../types/profilePageTypes";
 import { profilePageApi } from "../../api/api";
 
 // ---------- Profile page ---------- //
@@ -13,15 +13,21 @@ export const fetchProfile =
   async (dispatch: ThunkDispatch<{}, {}, ProfileAction>) => {
     dispatch(setLoading(true));
     const response = await profilePageApi.fetchProfile(userId);
+    const data = response.data;
 
-    dispatch(setProfile(response.data));
+    dispatch(setProfileData(data));
+    dispatch(setAvatar(data.photos.large));
     await dispatch(fetchStatus(userId));
 
     dispatch(setLoading(false));
   };
 
-const setProfile = (profileData: IProfileData): ProfileAction => {
+const setProfileData = (profileData: IProfileData): ProfileAction => {
   return { type: ProfileActionTypes.SET_PROFILE, payload: profileData };
+};
+
+const setAvatar = (avatar: string | null): ProfileAction => {
+  return { type: ProfileActionTypes.SET_AVATAR, payload: avatar };
 };
 
 const setLoading = (isLoading: boolean): ProfileAction => {

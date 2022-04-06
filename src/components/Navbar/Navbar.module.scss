@@ -3,18 +3,18 @@
   flex-direction: column;
   width: 100%;
   max-width: 160px;
-  font-size: 15px;
+  font-size: 16px;
   padding-right: 9px;
 
   div {
     padding: 7px 8px;
     border-radius: 4px;
-    color: #fff;
     cursor: pointer;
     transition: 0.2s;
 
     &:hover {
-      background: #333336;
+      background: #4C5F6B;
+      color: #fff;
     }
   }
 }

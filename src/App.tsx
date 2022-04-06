@@ -10,7 +10,7 @@ import { useActions } from "./hooks/useActions";
 import { useTypedSelector } from "./hooks/useTypedSelector";
 
 const App: FC = () => {
-  const { login, isAuth, userId } = useTypedSelector((state) => state.auth);
+  const { isAuth, userId, login } = useTypedSelector((state) => state.auth);
   const { fetchAuthUserData } = useActions();
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const App: FC = () => {
 
   return (
     <div className={classes.Layout}>
-      <Header userLogin={login} isAuth={isAuth} />
+      <Header userLogin={login} />
 
       <div className={classes.container}>
         <div>

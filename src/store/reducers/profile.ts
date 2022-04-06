@@ -3,11 +3,12 @@ import {
   ProfileAction,
   ProfileActionTypes,
   ProfileState,
-} from "../../types/profileTypes";
+} from "../../types/profilePageTypes";
 
 const initialState: ProfileState = {
   profileData: {} as IProfileData,
   profileStatus: "",
+  profileAvatar: null,
   isLoading: false,
 };
 
@@ -22,6 +23,8 @@ const profileReducer = (
       return { ...state, profileStatus: action.payload };
     case ProfileActionTypes.SET_LOADING:
       return { ...state, isLoading: action.payload };
+    case ProfileActionTypes.SET_AVATAR:
+      return { ...state, profileAvatar: action.payload };
     default:
       return state;
   }

@@ -7,7 +7,7 @@ const Navbar: FC = () => {
 
   return (
     <div className={classes.Navbar}>
-      <div onClick={() => navigate("/profile")}>Профиль</div>
+      <div onClick={() => navigate("/profile")}>Мой профиль</div>
       <div onClick={() => navigate("/users")}>Пользователи</div>
     </div>
   );

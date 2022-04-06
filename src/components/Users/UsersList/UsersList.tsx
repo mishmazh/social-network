@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { IUser } from "../../../types/usersTypes";
+import { IUser } from "../../../types/usersPageTypes";
 import UserItem from "./UserItem/UserItem";
 import classes from "./UsersList.module.scss";
 

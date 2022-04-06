@@ -1,31 +1,29 @@
 import { FC } from "react";
-import { IProfileData } from "../../../types/profileTypes";
+import { IProfileData } from "../../../types/profilePageTypes";
 import classes from "./ProfileInfo.module.scss";
-import userAvatar from "../../../assets/noUserAvatar.png";
+import noUserAvatar from "../../../assets/noUserAvatar.png";
 import ProfileStatus from "../ProfileStatus/ProfileStatus";
 
 interface ProfileInfoProps {
   profileData: IProfileData;
   profileStatus: string;
+  profileAvatar: string | null;
   updateStatus: (status: string) => void;
 }
 
 const ProfileInfo: FC<ProfileInfoProps> = ({
   profileData,
   profileStatus,
+  profileAvatar,
   updateStatus,
 }) => {
   return (
     <div className={classes.ProfileInfo}>
       <div className={classes.avatarBlock}>
-        {/* <img
-              src={
-                profileData.photos.large != null
-                  ? profileData.photos.large
-                  : userAvatar
-              }
-              alt="userAvatar"
-            /> */}
+        <img
+          src={profileAvatar !== null ? profileAvatar : noUserAvatar}
+          alt="profileAvatar"
+        />
       </div>
       <div className={classes.descBlock}>
         <div className={classes.fullName}>{profileData.fullName}</div>

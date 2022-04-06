@@ -5,10 +5,9 @@ import LogoutButton from "./LogoutButton/LogoutButton";
 
 interface HeaderProps {
   userLogin: string | null;
-  isAuth: boolean;
 }
 
-const Header: FC<HeaderProps> = ({ userLogin, isAuth }) => {
+const Header: FC<HeaderProps> = ({ userLogin }) => {
   const { logoutAttempt } = useActions();
 
   const logoutHandler = () => {
@@ -18,11 +17,7 @@ const Header: FC<HeaderProps> = ({ userLogin, isAuth }) => {
   return (
     <div className={classes.Header}>
       <div>
-        <LogoutButton
-          userLogin={userLogin}
-          isAuth={isAuth}
-          logoutHandler={logoutHandler}
-        />
+        <LogoutButton userLogin={userLogin} logoutHandler={logoutHandler} />
       </div>
     </div>
   );

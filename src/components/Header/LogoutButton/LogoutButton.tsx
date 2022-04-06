@@ -3,23 +3,16 @@ import classes from "./LogoutButton.module.scss";
 
 interface LogoutButtonProps {
   userLogin: string | null;
-  isAuth: boolean;
   logoutHandler: () => void;
 }
 
-const LogoutButton: FC<LogoutButtonProps> = ({
-  userLogin,
-  isAuth,
-  logoutHandler,
-}) => {
+const LogoutButton: FC<LogoutButtonProps> = ({ userLogin, logoutHandler }) => {
   return (
     <div className={classes.LogoutButton}>
-      {isAuth && (
-        <>
-          <button onClick={logoutHandler}>Выйти</button>
-          <div>{userLogin}</div>
-        </>
-      )}
+      {userLogin}
+      <div className={classes.logout} onClick={logoutHandler}>
+        <i className="fa-solid fa-right-from-bracket" />
+      </div>
     </div>
   );
 };
