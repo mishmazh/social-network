@@ -8,6 +8,7 @@ import Profile from "./components/Profile/Profile";
 import Users from "./components/Users/Users";
 import { useActions } from "./hooks/useActions";
 import { useTypedSelector } from "./hooks/useTypedSelector";
+import Layout from "./hoc/Layout/Layout";
 
 const App: FC = () => {
   const { isAuth, userId, login } = useTypedSelector((state) => state.auth);
@@ -21,37 +22,36 @@ const App: FC = () => {
     <Routes>
       <Route path="/" element={<Auth />} />
       <Route path="/users" element={<Navigate to="/" />} />
+      <Route path="/profile" element={<Navigate to="/" />} />
       <Route path="/profile/:userProfileId" element={<Navigate to="/" />} />
     </Routes>
   );
 
   if (isAuth) {
     routes = (
-      <Routes>
-        <Route path="/" element={<Navigate to="/profile" />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/profile/:userProfileId" element={<Profile />} />
-        <Route
-          path="/profile"
-          element={<Navigate to={`/profile/${userId}`} />}
-        />
-      </Routes>
+      <div className={classes.App}>
+        <Header userLogin={login} />
+
+        <div className={classes.container}>
+          <div>
+            <Navbar />
+
+            <Routes>
+              <Route path="/" element={<Navigate to="/profile" />} />
+              <Route path="/users" element={<Users />} />
+              <Route path="/profile/:userProfileId" element={<Profile />} />
+              <Route
+                path="/profile"
+                element={<Navigate to={`/profile/${userId}`} />}
+              />
+            </Routes>
+          </div>
+        </div>
+      </div>
     );
   }
 
-  return (
-    <div className={classes.Layout}>
-      <Header userLogin={login} />
-
-      <div className={classes.container}>
-        <div>
-          <Navbar />
-
-          {routes}
-        </div>
-      </div>
-    </div>
-  );
+  return <Layout>{routes}</Layout>;
 };
 
 export default App;

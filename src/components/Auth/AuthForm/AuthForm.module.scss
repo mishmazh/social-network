@@ -1,8 +1,11 @@
 .Form {
   display: flex;
   flex-direction: column;
-  width: 55%;
+  width: 420px;
   padding: 30px 25px;
+  background: #4c5f6b;
+  color: #fff;
+  border-radius: 5px;
 
   .title {
     font-size: 20px;
@@ -19,8 +22,6 @@
     border-radius: 5px;
     width: 30%;
     height: 40px;
-    color: #ffffff;
-    background: #4a707a;
   }
 
   .rememberMe {
