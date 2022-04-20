@@ -60,8 +60,11 @@ const setStatus = (status: string): ProfileAction => {
 export const updateAvatar =
   (avatarFile: File) => async (dispatch: Dispatch<ProfileAction>) => {
     const response = await profilePageApi.updateAvatar(avatarFile);
+    const data = response.data;
 
-    dispatch(updateAvatarSuccess(response.data.data.photos));
+    if (data.resultCode === 0) {
+        dispatch(updateAvatarSuccess(data.data.photos));
+    }
   };
 
 const updateAvatarSuccess = (avatarFile: IPhotos): ProfileAction => {

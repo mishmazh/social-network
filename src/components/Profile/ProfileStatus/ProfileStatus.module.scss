@@ -3,11 +3,11 @@
 
   .status {
     border-radius: 4px;
-    padding: 4px 0;
+    padding: 4px 0 4px 2px;
     cursor: pointer;
 
     &:hover {
-      background: rgba(0, 0, 0, 0.2)
+      background: rgba(0, 0, 0, 0.2);
     }
   }
 
@@ -26,6 +26,4 @@
     width: 22%;
     height: 30px;
   }
-
-
 }

@@ -30,6 +30,14 @@ export interface IProfileStatusData {
   data: {};
 }
 
+export interface IProfileAvatarData {
+  resultCode: number;
+  messages: string[];
+  data: {
+    photos: IPhotos
+  }
+}
+
 export interface ProfileState {
   profileData: IProfileData;
   profileStatus: string;

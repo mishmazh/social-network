@@ -5,7 +5,7 @@ import {
   IAuthLogoutData,
   IAuthMeData,
 } from "../types/authTypes";
-import { IProfileData, IProfileStatusData } from "../types/profilePageTypes";
+import {IProfileAvatarData, IProfileData, IProfileStatusData} from "../types/profilePageTypes";
 import { IFollowingData, IUsersData } from "../types/usersPageTypes";
 
 const instance = axios.create({
@@ -42,7 +42,7 @@ export const profilePageApi = {
     const formData = new FormData();
     formData.append("image", avatarFile);
 
-    return instance.put("profile/photo", formData, {
+    return instance.put<IProfileAvatarData>("profile/photo", formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
   },
