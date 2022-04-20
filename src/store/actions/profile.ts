@@ -1,6 +1,7 @@
 import { Dispatch } from "react";
 import { ThunkDispatch } from "redux-thunk";
 import {
+  IPhotos,
   IProfileData,
   ProfileAction,
   ProfileActionTypes,
@@ -53,4 +54,19 @@ export const updateStatus =
 
 const setStatus = (status: string): ProfileAction => {
   return { type: ProfileActionTypes.SET_STATUS, payload: status };
+};
+
+// ---------- Profile Avatar ---------- //
+export const updateAvatar =
+  (avatarFile: File) => async (dispatch: Dispatch<ProfileAction>) => {
+    const response = await profilePageApi.updateAvatar(avatarFile);
+
+    dispatch(updateAvatarSuccess(response.data.data.photos));
+  };
+
+const updateAvatarSuccess = (avatarFile: IPhotos): ProfileAction => {
+  return {
+    type: ProfileActionTypes.UPDATE_AVATAR,
+    payload: avatarFile,
+  };
 };

@@ -3,11 +3,13 @@ import classes from "./ProfileStatus.module.scss";
 
 interface ProfileStatusProps {
   profileStatus: string;
+  isOwner: boolean;
   updateStatus: (status: string) => void;
 }
 
 const ProfileStatus: FC<ProfileStatusProps> = ({
   profileStatus,
+  isOwner,
   updateStatus,
 }) => {
   const [status, setStatus] = useState<string>(profileStatus);
@@ -26,21 +28,25 @@ const ProfileStatus: FC<ProfileStatusProps> = ({
     setStatus(e.target.value);
   };
 
+  const changeEditMode = isEditMode ? (
+    <div>
+      <input
+        type="text"
+        onChange={onChangeStatus}
+        value={status}
+        autoFocus={true}
+      />
+      <button onClick={editModeOff}>Сохранить</button>
+    </div>
+  ) : (
+    <div className={classes.status} onClick={editModeOn}>
+      {status}
+    </div>
+  );
+
   return (
     <div className={classes.ProfileStatus}>
-      {isEditMode ? (
-        <div>
-          <input
-            type="text"
-            onChange={onChangeStatus}
-            value={status}
-            autoFocus={true}
-          />
-          <button onClick={editModeOff}>Сохранить</button>
-        </div>
-      ) : (
-        <div onClick={editModeOn}>{status}</div>
-      )}
+      {isOwner ? changeEditMode : status}
     </div>
   );
 };

@@ -25,6 +25,11 @@ const profileReducer = (
       return { ...state, isLoading: action.payload };
     case ProfileActionTypes.SET_AVATAR:
       return { ...state, profileAvatar: action.payload };
+    case ProfileActionTypes.UPDATE_AVATAR:
+      return {
+        ...state,
+        profileData: { ...state.profileData, photos: action.payload },
+      };
     default:
       return state;
   }

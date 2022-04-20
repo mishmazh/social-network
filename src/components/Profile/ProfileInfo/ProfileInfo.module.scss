@@ -10,6 +10,7 @@
   }
 
   .avatarBlock {
+    max-width: 235px;
     width: 50%;
     height: 100%;
     margin-right: 15px;
@@ -17,6 +18,19 @@
     img {
       width: 100%;
       border-radius: 4px;
+    }
+
+    button {
+      margin-top: 10px;
+      width: 100%;
+      border-radius: 4px;
+      padding: 9px 0;
+      transition: 0.2s;
+
+      &:hover {
+        background: #4C5F6B;
+        color: #fff;
+      }
     }
   }
 
@@ -27,7 +41,6 @@
 
     .fullName {
       font-size: 24px;
-      padding-bottom: 5px;
     }
 
     .mainInfo {

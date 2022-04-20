@@ -38,6 +38,14 @@ export const profilePageApi = {
   updateStatus(status: string) {
     return instance.put<IProfileStatusData>("profile/status", { status });
   },
+  updateAvatar(avatarFile: File) {
+    const formData = new FormData();
+    formData.append("image", avatarFile);
+
+    return instance.put("profile/photo", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+  },
 };
 
 export const usersPageApi = {

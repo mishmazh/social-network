@@ -42,7 +42,8 @@ const App: FC = () => {
               <Route path="/profile/:userProfileId" element={<Profile />} />
               <Route
                 path="/profile"
-                element={<Navigate to={`/profile/${userId}`} />}
+                // element={<Navigate to={`/profile/${userId}`} />}
+                element={<Profile />}
               />
             </Routes>
           </div>

@@ -1,13 +1,23 @@
 .ProfileStatus {
   border-radius: 4px;
 
+  .status {
+    border-radius: 4px;
+    padding: 4px 0;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.2)
+    }
+  }
+
   input {
     width: 100%;
     font-size: 13px;
     padding: 4px 0 4px 7px;
     border-radius: 4px;
     background: #f0f0f0;
-    margin-bottom: 5px;
+    margin: 5px 0;
   }
 
   button {
@@ -16,4 +26,6 @@
     width: 22%;
     height: 30px;
   }
+
+
 }

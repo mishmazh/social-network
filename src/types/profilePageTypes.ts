@@ -42,6 +42,7 @@ export enum ProfileActionTypes {
   SET_STATUS = "profile/SET_STATUS",
   SET_LOADING = "profile/SET_LOADING",
   SET_AVATAR = "profile/SET_AVATAR",
+  UPDATE_AVATAR = "profile/UPDATE_AVATAR",
 }
 
 interface SetProfileAction {
@@ -59,6 +60,11 @@ interface SetAvatarAction {
   payload: string | null;
 }
 
+interface UpdateAvatarAction {
+  type: ProfileActionTypes.UPDATE_AVATAR;
+  payload: IPhotos;
+}
+
 interface SetLoadingAction {
   type: ProfileActionTypes.SET_LOADING;
   payload: boolean;
@@ -68,4 +74,5 @@ export type ProfileAction =
   | SetProfileAction
   | SetStatusAction
   | SetAvatarAction
+  | UpdateAvatarAction
   | SetLoadingAction;

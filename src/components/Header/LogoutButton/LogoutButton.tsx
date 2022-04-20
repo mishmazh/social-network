@@ -9,7 +9,7 @@ interface LogoutButtonProps {
 const LogoutButton: FC<LogoutButtonProps> = ({ userLogin, logoutHandler }) => {
   return (
     <div className={classes.LogoutButton}>
-      {userLogin}
+      <div className={classes.userLogin}>{userLogin}</div>
       <div className={classes.logout} onClick={logoutHandler}>
         <i className="fa-solid fa-right-from-bracket" />
       </div>
