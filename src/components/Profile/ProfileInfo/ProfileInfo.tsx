@@ -1,5 +1,5 @@
 import { ChangeEvent, FC } from "react";
-import { IProfileData } from "../../../types/profilePageTypes";
+import { IContacts, IProfileData } from "../../../types/profilePageTypes";
 import classes from "./ProfileInfo.module.scss";
 import noUserAvatar from "../../../assets/noUserAvatar.png";
 import ProfileStatus from "../ProfileStatus/ProfileStatus";
@@ -69,7 +69,9 @@ const ProfileInfo: FC<ProfileInfoProps> = ({
             return (
               <ProfileContact
                 contactName={contactName}
-                contactValue={profileData.contacts[contactName]}
+                contactValue={
+                  profileData.contacts[contactName as keyof IContacts]
+                }
                 key={contactName}
               />
             );

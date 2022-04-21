@@ -44,7 +44,7 @@ const AuthForm: FC<AuthFormProps> = ({
             {/*  {isSubmitting ? <Loader /> : "Войти"}*/}
             {/*</button>*/}
 
-            <button>Войти</button>
+            <button type="submit">Войти</button>
           </Form>
         );
       }}
