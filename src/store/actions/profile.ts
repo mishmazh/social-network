@@ -16,6 +16,8 @@ export const fetchProfile =
     const response = await profilePageApi.fetchProfile(userId);
     const data = response.data;
 
+    console.log(response.data.contacts);
+
     dispatch(setProfileData(data));
     dispatch(setAvatar(data.photos.large));
     await dispatch(fetchStatus(userId));
@@ -63,7 +65,7 @@ export const updateAvatar =
     const data = response.data;
 
     if (data.resultCode === 0) {
-        dispatch(updateAvatarSuccess(data.data.photos));
+      dispatch(updateAvatarSuccess(data.data.photos));
     }
   };
 

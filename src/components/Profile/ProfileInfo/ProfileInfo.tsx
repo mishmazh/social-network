@@ -3,6 +3,7 @@ import { IProfileData } from "../../../types/profilePageTypes";
 import classes from "./ProfileInfo.module.scss";
 import noUserAvatar from "../../../assets/noUserAvatar.png";
 import ProfileStatus from "../ProfileStatus/ProfileStatus";
+import ProfileContact from "../ProfileContact/ProfileContact";
 
 interface ProfileInfoProps {
   profileData: IProfileData;
@@ -34,7 +35,14 @@ const ProfileInfo: FC<ProfileInfoProps> = ({
           src={profileAvatar !== null ? profileAvatar : noUserAvatar}
           alt="profileAvatar"
         />
-        {isOwner && <input type="file" onChange={onChangeAvatar} />}
+        {isOwner && (
+          <>
+            <input type="file" id="inputFile" onChange={onChangeAvatar} />
+            <div>
+              <label htmlFor="inputFile">Загрузить аватар</label>
+            </div>
+          </>
+        )}
       </div>
 
       <div className={classes.descBlock}>
@@ -57,6 +65,15 @@ const ProfileInfo: FC<ProfileInfoProps> = ({
           </ul>
 
           <p>Контакты:</p>
+          {Object.keys(profileData.contacts).map((contactName) => {
+            return (
+              <ProfileContact
+                contactName={contactName}
+                contactValue={profileData.contacts[contactName]}
+                key={contactName}
+              />
+            );
+          })}
           <hr />
         </div>
       </div>

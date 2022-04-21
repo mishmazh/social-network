@@ -20,8 +20,8 @@ const ProfileStatus: FC<ProfileStatusProps> = ({
   };
 
   const editModeOff = () => {
-    updateStatus(status);
     setEditMode(false);
+    updateStatus(status);
   };
 
   const onChangeStatus = (e: ChangeEvent<HTMLInputElement>) => {

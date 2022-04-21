@@ -4,14 +4,14 @@ export interface IPhotos {
 }
 
 export interface IContacts {
-  github: string;
-  vk: string;
-  facebook: string;
-  instagram: string;
-  twitter: string;
-  website: string;
-  youtube: string;
-  mainLink: string;
+  github: string | null;
+  vk: string | null;
+  facebook: string | null;
+  instagram: string | null;
+  twitter: string | null;
+  website: string | null;
+  youtube: string | null;
+  mainLink: string | null;
 }
 
 export interface IProfileData {
@@ -34,8 +34,8 @@ export interface IProfileAvatarData {
   resultCode: number;
   messages: string[];
   data: {
-    photos: IPhotos
-  }
+    photos: IPhotos;
+  };
 }
 
 export interface ProfileState {
