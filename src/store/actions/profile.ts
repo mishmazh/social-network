@@ -13,6 +13,7 @@ export const fetchProfile =
   (userId: string | undefined) =>
   async (dispatch: ThunkDispatch<{}, {}, ProfileAction>) => {
     dispatch(setLoading(true));
+
     const response = await profilePageApi.fetchProfile(userId);
     const data = response.data;
 

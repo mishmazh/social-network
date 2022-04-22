@@ -1,9 +1,8 @@
 import { ChangeEvent, FC } from "react";
-import { IContacts, IProfileData } from "../../../types/profilePageTypes";
+import { IProfileData } from "../../../types/profilePageTypes";
 import classes from "./ProfileInfo.module.scss";
 import noUserAvatar from "../../../assets/noUserAvatar.png";
 import ProfileStatus from "../ProfileStatus/ProfileStatus";
-import ProfileContact from "../ProfileContact/ProfileContact";
 
 interface ProfileInfoProps {
   profileData: IProfileData;
@@ -65,7 +64,10 @@ const ProfileInfo: FC<ProfileInfoProps> = ({
           </ul>
 
           <p>Контакты:</p>
-          {Object.keys(profileData.contacts).map((contactName) => {
+
+          {profileData.contacts.facebook}
+
+          {/* {Object.keys(profileData.contacts).map((contactName) => {
             return (
               <ProfileContact
                 contactName={contactName}
@@ -75,7 +77,7 @@ const ProfileInfo: FC<ProfileInfoProps> = ({
                 key={contactName}
               />
             );
-          })}
+          })} */}
           <hr />
         </div>
       </div>

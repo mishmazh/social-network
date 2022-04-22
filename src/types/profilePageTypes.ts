@@ -6,7 +6,7 @@ export interface IPhotos {
 export interface IContacts {
   github: string | null;
   vk: string | null;
-  facebook: string | null;
+  facebook: string | null | undefined;
   instagram: string | null;
   twitter: string | null;
   website: string | null;
