@@ -3,6 +3,7 @@ import { IProfileData } from "../../../types/profilePageTypes";
 import classes from "./ProfileInfo.module.scss";
 import noUserAvatar from "../../../assets/noUserAvatar.png";
 import ProfileStatus from "../ProfileStatus/ProfileStatus";
+import Delimiter from "../../UI/Delimiter/Delimiter";
 
 interface ProfileInfoProps {
   profileData: IProfileData;
@@ -54,7 +55,8 @@ const ProfileInfo: FC<ProfileInfoProps> = ({
 
         <div className={classes.mainInfo}>
           <p>Основная информация</p>
-          <hr />
+          <Delimiter />
+
           <ul>
             <li>Обо мне: {profileData.aboutMe}</li>
             <li>
@@ -64,8 +66,9 @@ const ProfileInfo: FC<ProfileInfoProps> = ({
           </ul>
 
           <p>Контакты:</p>
+          <Delimiter />
 
-          {profileData.contacts.facebook}
+          {/*{profileData.contacts.facebook}*/}
 
           {/* {Object.keys(profileData.contacts).map((contactName) => {
             return (
@@ -78,7 +81,6 @@ const ProfileInfo: FC<ProfileInfoProps> = ({
               />
             );
           })} */}
-          <hr />
         </div>
       </div>
     </div>

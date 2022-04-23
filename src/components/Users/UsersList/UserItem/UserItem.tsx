@@ -5,6 +5,7 @@ import classes from "./UserItem.module.scss";
 import userAvatar from "../../../../assets/noUserAvatar.png";
 import Loader from "../../../UI/Loader/Loader";
 import { sliceString } from "../../../../helpers/stringHelpers";
+import Button from "../../../UI/Button/Button";
 
 interface UserItemProps {
   user: IUser;
@@ -26,31 +27,28 @@ const UserItem: FC<UserItemProps> = ({
   };
 
   const followButton = (
-    <button
+    <Button
       onClick={() => followUser(user.id)}
       disabled={isFollowLoading.some((id) => id === user.id)}
+      classType="subscribe"
     >
       {isFollowLoading.some((id) => id === user.id) ? (
         <Loader />
       ) : (
         "Подписаться"
       )}
-    </button>
+    </Button>
   );
 
   const unfollowButton = (
-    <button
+    <Button
       onClick={() => unfollowUser(user.id)}
       disabled={isFollowLoading.some((id) => id === user.id)}
+      classType="subscribe"
     >
       {isFollowLoading.some((id) => id === user.id) ? <Loader /> : "Отписаться"}
-    </button>
+    </Button>
   );
-
-  // const sliceStatus =
-  //   user.status !== null && user.status.length > 100
-  //     ? user.status.slice(0, -60) + "..."
-  //     : user.status;
 
   return (
     <div className={classes.UserItem}>

@@ -4,17 +4,6 @@
   font-size: 13px;
   color: #000;
 
-  button {
-    width: 34px;
-    background: transparent;
-    transition: 0.2s;
-
-    &:hover {
-      color: #fff;
-      background: #4C5F6B;
-    }
-  }
-
   > div {
     display: flex;
     background: #fff;
@@ -29,7 +18,7 @@
 
       &:hover {
         color: #fff;
-        background: #4C5F6B;
+        background: #4c5f6b;
       }
     }
   }

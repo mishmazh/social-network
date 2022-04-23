@@ -5,14 +5,18 @@ import {
   IAuthLogoutData,
   IAuthMeData,
 } from "../types/authTypes";
-import {IProfileAvatarData, IProfileData, IProfileStatusData} from "../types/profilePageTypes";
+import {
+  IProfileAvatarData,
+  IProfileData,
+  IProfileStatusData,
+} from "../types/profilePageTypes";
 import { IFollowingData, IUsersData } from "../types/usersPageTypes";
 
 const instance = axios.create({
   withCredentials: true,
   baseURL: "https://social-network.samuraijs.com/api/1.0/",
   headers: {
-    "API-KEY": "fd2888ff-2029-4d8f-a2be-25a72bc5550b",
+    "API-KEY": "96b67026-4ab3-4201-9825-691e2bf799c2",
   },
 });
 

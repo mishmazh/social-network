@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import classes from "./Paginator.module.scss";
+import Button from "../Button/Button";
 
 interface PaginatorProps {
   totalUsersCount: number;
@@ -28,13 +29,14 @@ const Paginator: FC<PaginatorProps> = ({
     <div className={classes.Paginator}>
       <div>
         {portionNumber > 1 && (
-          <button
+          <Button
+            classType="pagArrow"
             onClick={() => {
               setPortionNumber(portionNumber - 1);
             }}
           >
             <i className="fa-solid fa-angle-left" />
-          </button>
+          </Button>
         )}
 
         {pages
@@ -56,13 +58,14 @@ const Paginator: FC<PaginatorProps> = ({
           })}
 
         {portionCount > portionNumber && (
-          <button
+          <Button
+            classType="pagArrow"
             onClick={() => {
               setPortionNumber(portionNumber + 1);
             }}
           >
             <i className="fa-solid fa-angle-right" />
-          </button>
+          </Button>
         )}
       </div>
     </div>

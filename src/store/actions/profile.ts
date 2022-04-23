@@ -17,8 +17,6 @@ export const fetchProfile =
     const response = await profilePageApi.fetchProfile(userId);
     const data = response.data;
 
-    console.log(response.data.contacts);
-
     dispatch(setProfileData(data));
     dispatch(setAvatar(data.photos.large));
     await dispatch(fetchStatus(userId));

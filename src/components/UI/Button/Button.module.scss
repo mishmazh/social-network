@@ -1,0 +1,42 @@
+.Button {
+  transition: 0.08s;
+}
+
+.login {
+  margin-top: 25px;
+  font-size: 14px;
+  border-radius: 5px;
+  width: 30%;
+  height: 37px;
+
+  &:hover {
+    background: #4c5f6b;
+    color: #fff;
+  }
+
+  &:disabled {
+    background: transparent;
+  }
+}
+
+.subscribe {
+  padding: 7px 12px;
+  font-size: 13px;
+  border-radius: 5px;
+  width: 105px;
+
+  &:disabled {
+    background: transparent;
+  }
+}
+
+.pagArrow {
+  width: 34px;
+  background: transparent;
+  transition: 0.2s;
+
+  &:hover {
+    color: #fff;
+    background: #4c5f6b;
+  }
+}

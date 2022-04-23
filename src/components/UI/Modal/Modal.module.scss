@@ -1,0 +1,15 @@
+.Modal {
+  position: absolute;
+  bottom: 10px;
+  width: 280px;
+  height: 90px;
+  border-radius: 5px;
+  background: #a8adb3;
+  opacity: 0.8;
+  font-size: 13px;
+  padding: 5px;
+
+  p {
+    padding-bottom: 5px;
+  }
+}
