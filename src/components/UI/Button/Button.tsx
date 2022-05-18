@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import classes from "./Button.module.scss";
 
 interface ButtonProps {
@@ -6,6 +6,7 @@ interface ButtonProps {
   type?: "submit" | "reset" | "button";
   disabled?: boolean;
   onClick?: () => void;
+  children: ReactNode;
 }
 
 const Button: FC<ButtonProps> = ({ classType, children, ...props }) => {

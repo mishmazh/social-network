@@ -1,8 +1,12 @@
-import { FC } from "react";
-import classes from "./Layout.module.scss";
+import { FC, ReactNode } from "react";
+import s from "./Layout.module.scss";
 
-const Layout: FC = ({ children }) => {
-  return <div className={classes.Layout}>{children}</div>;
+interface LayoutProps {
+  children: ReactNode;
+}
+
+const Layout: FC<LayoutProps> = ({ children }) => {
+  return <div className={s.layout}>{children}</div>;
 };
 
 export default Layout;

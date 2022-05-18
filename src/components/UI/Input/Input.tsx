@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { ComponentType, FC } from "react";
 import classes from "./Input.module.scss";
 import { Field, ErrorMessage } from "formik";
 import TextError from "../TextError/TextError";
@@ -15,7 +15,7 @@ const Input: FC<InputProps> = ({ label, name, ...props }) => {
     <div className={classes.Input}>
       <label htmlFor={name}>{label}</label>
       <Field id={name} name={name} {...props} />
-      <ErrorMessage name={name} component={TextError} />
+      <ErrorMessage name={name} component={TextError as ComponentType} />
     </div>
   );
 };

@@ -1,7 +1,11 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import classes from "./Modal.module.scss";
 
-const Modal: FC = ({ children }) => {
+interface ModalProps {
+  children: ReactNode;
+}
+
+const Modal: FC<ModalProps> = ({ children }) => {
   return <div className={classes.Modal}>{children}</div>;
 };
 
