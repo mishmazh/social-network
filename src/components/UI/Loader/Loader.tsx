@@ -1,6 +1,6 @@
 import { FC } from "react";
-import classes from "./Loader.module.scss";
+import s from "./Loader.module.scss";
 
-const Loader: FC = () => <div className={classes.Loader} />;
+const Loader: FC = () => <div className={s.loader} />;
 
 export default Loader;

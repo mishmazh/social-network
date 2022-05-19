@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { useActions } from "../../hooks/useActions";
-import classes from "./Header.module.scss";
-import LogoutButton from "./LogoutButton/LogoutButton";
+import LogoutButton from "./LogoutButton";
 
 interface HeaderProps {
   userLogin: string | null;
@@ -15,11 +14,11 @@ const Header: FC<HeaderProps> = ({ userLogin }) => {
   };
 
   return (
-    <div className={classes.Header}>
-      <div>
+    <header className="flex justify-center dark-gradient h-12">
+      <div className="flex justify-end items-center w-1/2">
         <LogoutButton userLogin={userLogin} logoutHandler={logoutHandler} />
       </div>
-    </div>
+    </header>
   );
 };
 
