@@ -3,6 +3,7 @@ import { ThunkDispatch } from "redux-thunk";
 import {
   AuthAction,
   AuthActionTypes,
+  IAuthFormSubmit,
   IAuthFormValues,
 } from "../../types/authTypes";
 import { authApi } from "../../api/api";
@@ -31,13 +32,20 @@ const setAuthUserData = (
 };
 
 export const loginAttempt =
-  (values: IAuthFormValues) =>
+  (values: IAuthFormValues, { setStatus, setSubmitting }: IAuthFormSubmit) =>
   async (dispatch: ThunkDispatch<{}, {}, AuthAction>) => {
     const response = await authApi.login(values);
     const data = response.data;
 
-    if (data.resultCode === 0) {
-      dispatch(fetchAuthUserData());
+    if (data.resultCode === 1) {
+      setStatus({ message: data.messages[0] });
+      setSubmitting(false);
+
+      setTimeout(() => {
+        setStatus("");
+      }, 2500);
+    } else if (data.resultCode === 0) {
+      await dispatch(fetchAuthUserData());
     }
   };
 

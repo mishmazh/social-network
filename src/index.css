@@ -1,47 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@500&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: "Inter", sans-serif;
-  background-image: url("assets/back.jpg");
-  background-size: cover;
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
+.app-content {
+  @apply bg-[url("assets/back.jpg")] bg-cover backdrop-blur w-full font-catamaran;
 }
 
 .dark-gradient {
-  background: rgba(0, 0, 0, 0.65);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(0, 0, 0, 0.17);
+  @apply bg-black-500/60 backdrop-blur shadow-sm;
 }
 
-.change-avatar {
-  display: block;
-  border-radius: 4px;
-  margin-top: 10px;
-  padding: 9px 0;
-  text-align: center;
-  transition: 0.2s;
-  font-size: 13px;
-  cursor: pointer;
-  background: #fff;
-  color: #000;
+.upload-avatar-button {
+  @apply block rounded mt-3 py-2.5 text-center duration-200 text-sm cursor-pointer bg-white text-black-500;
 }
 
 .navbar-button {
-  padding: 5px 8px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: 0.1s;
+  @apply text-lg py-1 px-3 rounded cursor-pointer duration-100 hover:bg-black-500/60 hover:text-white;
 }
 
-.navbar-button:hover {
-  background: rgba(0, 0, 0, 0.65);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  color: #fff;
+.hover-dark-gradient {
+  @apply hover:bg-black-500/30 hover:text-white duration-100;
+}
+
+/* ---------- Paginator ---------- */
+.pagination-arrow {
+  @apply w-8 bg-transparent rounded-none;
+}
+
+.pagination-page-number {
+  @apply pt-2 px-3 cursor-pointer;
 }
 
 :focus,

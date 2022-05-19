@@ -45,7 +45,10 @@ const ProfileInfo: FC<ProfileInfoProps> = ({
                 onChange={onChangeAvatar}
               />
               <div>
-                <label className="change-avatar" htmlFor="inputFile">
+                <label
+                  className="upload-avatar-button hover-dark-gradient"
+                  htmlFor="inputFile"
+                >
                   Upload avatar
                 </label>
               </div>
@@ -89,6 +92,7 @@ const ProfileInfo: FC<ProfileInfoProps> = ({
 
             <p className="text-base">Contacts:</p>
             <Delimiter />
+            <p className="opacity-70 mt-2">in developing</p>
           </div>
         </div>
       </div>

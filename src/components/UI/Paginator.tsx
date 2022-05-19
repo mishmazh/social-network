@@ -4,12 +4,14 @@ import Button from "./Button";
 interface PaginatorProps {
   totalUsersCount: number;
   portionSize: number;
+  currentPage: number;
   changePage: (pageNumber: number) => void;
 }
 
 const Paginator: FC<PaginatorProps> = ({
   totalUsersCount,
   portionSize,
+  currentPage,
   changePage,
 }) => {
   const pagesCount = Math.ceil(totalUsersCount / 10);
@@ -26,10 +28,11 @@ const Paginator: FC<PaginatorProps> = ({
 
   return (
     <div className="flex mb-8 text-sm">
-      <div className="flex bg-white text-black rounded">
+      <div className="flex bg-white rounded text-black-500 overflow-hidden">
+        {/* ---------- Стрелка влево ----------  */}
         {portionNumber > 1 && (
           <Button
-            className="w-8 bg-transparent"
+            className="pagination-arrow hover-dark-gradient"
             onClick={() => {
               setPortionNumber(portionNumber - 1);
             }}
@@ -47,7 +50,11 @@ const Paginator: FC<PaginatorProps> = ({
           .map((pageNumber) => {
             return (
               <div
-                className="flex items-center px-3 cursor-pointer"
+                className={
+                  currentPage === pageNumber
+                    ? "pagination-page-number bg-black-500/30 text-white"
+                    : "pagination-page-number hover-dark-gradient"
+                }
                 onClick={() => changePage(pageNumber)}
                 key={pageNumber}
               >
@@ -56,9 +63,10 @@ const Paginator: FC<PaginatorProps> = ({
             );
           })}
 
+        {/* ---------- Стрелка вправо ----------  */}
         {portionCount > portionNumber && (
           <Button
-            className="w-8 bg-transparent"
+            className="pagination-arrow hover-dark-gradient"
             onClick={() => {
               setPortionNumber(portionNumber + 1);
             }}

@@ -10,6 +10,11 @@ export interface IAuthFormValidation {
   password: string;
 }
 
+export interface IAuthFormSubmit {
+  setStatus: (message: {}) => void | string;
+  setSubmitting: (submit: boolean) => void;
+}
+
 // ---------- Auth Data ---------- //
 export interface IAuthMe {
   id: number;

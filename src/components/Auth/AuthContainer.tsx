@@ -1,7 +1,11 @@
 import { FC } from "react";
 import * as Yup from "yup";
 import AuthForm from "./AuthForm";
-import { IAuthFormValidation, IAuthFormValues } from "../../types/authTypes";
+import {
+  IAuthFormSubmit,
+  IAuthFormValidation,
+  IAuthFormValues,
+} from "../../types/authTypes";
 import { useActions } from "../../hooks/useActions";
 import Modal from "../UI/Modal";
 
@@ -14,22 +18,23 @@ const AuthContainer: FC = () => {
   };
 
   const validationSchema: Yup.SchemaOf<IAuthFormValidation> = Yup.object({
-    email: Yup.string()
-      .email("Неверный формат")
-      .required("Поле обязательно для заполнения"),
-    password: Yup.string().required("Поле обязательно для заполнения"),
+    email: Yup.string().email("Invalid format").required("Field is required"),
+    password: Yup.string().required("Field is required"),
   });
 
-  const onSubmit = (values: IAuthFormValues) => {
-    loginAttempt(values);
+  const onSubmit = (
+    values: IAuthFormValues,
+    { setStatus, setSubmitting }: IAuthFormSubmit
+  ) => {
+    loginAttempt(values, { setStatus, setSubmitting });
   };
 
   return (
-    <div className="flex justify-center items-center h-full">
+    <div className="flex justify-center items-center h-screen">
       <AuthForm
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={onSubmit}
+        onSubmit={onSubmit as () => void}
       />
 
       <Modal>

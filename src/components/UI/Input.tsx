@@ -14,7 +14,7 @@ const Input: FC<InputProps> = ({ label, name, ...props }) => {
     <>
       <label htmlFor={name}>{label}</label>
       <Field
-        className="mt-3 text-xs p-2 rounded text-black bg-grey"
+        className="mt-3 text-xs p-2 rounded text-black-500 bg-grey"
         id={name}
         name={name}
         {...props}

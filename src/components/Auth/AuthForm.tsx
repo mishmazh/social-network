@@ -4,6 +4,7 @@ import { IAuthFormValidation, IAuthFormValues } from "../../types/authTypes";
 import Input from "../UI/Input";
 import * as Yup from "yup";
 import Button from "../UI/Button";
+import TextError from "../UI/TextError";
 
 interface AuthFormProps {
   initialValues: IAuthFormValues;
@@ -22,25 +23,29 @@ const AuthForm: FC<AuthFormProps> = ({
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      {({ isSubmitting }) => {
+      {({ status, isSubmitting }) => {
         return (
           <Form className="flex flex-col bg-primary w-96 pt-4 pb-5 px-6 rounded text-white dark-gradient">
-            <div className="pb-9 text-2xl text-center">Авторизация</div>
+            <div className="pb-9 text-2xl text-center">Authorization</div>
 
-            <Input type="email" name="email" placeholder="Введите Email..." />
+            <Input type="email" name="email" placeholder="Enter Email..." />
 
             <Input
               type="password"
               name="password"
-              placeholder="Введите пароль..."
+              placeholder="Enter password..."
             />
+
+            {status && status.message && (
+              <TextError>{status.message}</TextError>
+            )}
 
             <Button
               className="mt-9 disabled:opacity-50"
               type="submit"
               disabled={isSubmitting}
             >
-              Войти
+              Login
             </Button>
           </Form>
         );

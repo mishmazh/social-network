@@ -31,19 +31,19 @@ const ProfileStatus: FC<ProfileStatusProps> = ({
   const changeEditMode = isEditMode ? (
     <div>
       <input
-        className="w-full text-xs py-2 pl-2 my-2 rounded text-black"
+        className="w-full text-xs py-2 pl-2 my-2 rounded text-black-500"
         type="text"
         onChange={onChangeStatus}
         value={status}
         autoFocus={true}
       />
       <Button className="text-xs px-3 py-1.5" onClick={editModeOff}>
-        Сохранить
+        Save
       </Button>
     </div>
   ) : (
     <div
-      className="rounded py-1 pl-0.5 cursor-pointer text-xs hover:bg-black"
+      className="rounded py-1 pl-1 cursor-pointer text-xs hover-dark-gradient"
       onClick={editModeOn}
     >
       {status}

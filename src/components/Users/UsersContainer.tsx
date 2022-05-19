@@ -34,6 +34,7 @@ const UsersContainer: FC = () => {
       <Paginator
         totalUsersCount={totalUsersCount}
         portionSize={10}
+        currentPage={currentPage}
         changePage={changePage}
       />
       {isPageLoading ? (

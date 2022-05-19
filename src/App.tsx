@@ -49,7 +49,7 @@ const App: FC = () => {
     );
   }
 
-  return <div className="h-screen">{routes}</div>;
+  return <div className="app-content">{routes}</div>;
 };
 
 export default App;

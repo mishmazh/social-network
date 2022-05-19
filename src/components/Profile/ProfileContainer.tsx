@@ -26,7 +26,7 @@ const ProfileContainer: FC = () => {
   }, [userProfileId]);
 
   return (
-    <div className="w-full">
+    <div className="w-full h-screen">
       {isLoading ? (
         <Loader />
       ) : (

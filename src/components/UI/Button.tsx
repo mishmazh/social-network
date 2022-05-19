@@ -15,7 +15,7 @@ const Button: FC<ButtonProps> = ({
   children,
   ...props
 }) => {
-  const cls = ["bg-grey text-black rounded py-2 text-sm", className];
+  const cls = ["bg-grey text-black-500 rounded py-2 text-sm", className];
 
   return (
     <button className={cls.join(" ")} {...props}>

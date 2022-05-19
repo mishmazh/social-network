@@ -5,7 +5,7 @@ interface TextErrorProps {
 }
 
 const TextError: FC<TextErrorProps> = ({ children }) => (
-  <div className="text-red text-xs p-1">{children}</div>
+  <div className="text-red text-xs p-1.5">{children}</div>
 );
 
 export default TextError;

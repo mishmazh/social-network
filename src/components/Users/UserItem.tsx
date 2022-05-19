@@ -29,7 +29,7 @@ const UserItem: FC<UserItemProps> = ({
     <Button
       onClick={() => followUser(user.id)}
       disabled={isFollowLoading.some((id) => id === user.id)}
-      className="py-2 px-3 text-xs rounded w-28 disabled:bg-transparent"
+      className="py-2 px-3 text-xs rounded w-28 disabled:bg-transparent hover-dark-gradient"
     >
       {isFollowLoading.some((id) => id === user.id) ? <Loader /> : "Follow"}
     </Button>
@@ -39,7 +39,7 @@ const UserItem: FC<UserItemProps> = ({
     <Button
       onClick={() => unfollowUser(user.id)}
       disabled={isFollowLoading.some((id) => id === user.id)}
-      className="py-2 px-3 text-xs rounded w-28 disabled:bg-transparent"
+      className="py-2 px-3 text-xs rounded w-28 disabled:bg-transparent hover-dark-gradient"
     >
       {isFollowLoading.some((id) => id === user.id) ? <Loader /> : "Unfollow"}
     </Button>

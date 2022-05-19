@@ -10,12 +10,17 @@ module.exports = {
     colors: {
       primary: "#4c5f6b",
       white: "#fff",
-      black: "#000",
+      black: {
+        500: "#000",
+      },
       grey: "#f0f0f0",
       red: "#ff7373",
       transparent: "transparent",
     },
+    fontFamily: {
+      catamaran: ["Catamaran", "sans-serif"],
+    },
     extend: {},
   },
-  plugins: [],
+  plugins: [require("tailwindcss"), require("autoprefixer")],
 };
