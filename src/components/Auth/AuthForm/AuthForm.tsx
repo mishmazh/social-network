@@ -1,6 +1,5 @@
 import { Form, Formik } from "formik";
 import { FC } from "react";
-import classes from "./AuthForm.module.scss";
 import { IAuthFormValidation, IAuthFormValues } from "../../../types/authTypes";
 import Input from "../../UI/Input/Input";
 import * as Yup from "yup";
@@ -25,8 +24,8 @@ const AuthForm: FC<AuthFormProps> = ({
     >
       {() => {
         return (
-          <Form className={classes.Form}>
-            <div className={classes.title}>Авторизация</div>
+          <Form className="flex flex-col w-96 bg-primary py-4 px-6 rounded text-white">
+            <div className="pb-6 text-xl">Авторизация</div>
 
             <Input type="email" name="email" placeholder="Введите Email..." />
 

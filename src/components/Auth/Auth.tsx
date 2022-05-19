@@ -26,7 +26,7 @@ const Auth: FC = () => {
   };
 
   return (
-    <div className={classes.Auth}>
+    <div className="flex flex-col justify-center h-full ">
       <AuthForm
         initialValues={initialValues}
         validationSchema={validationSchema}
