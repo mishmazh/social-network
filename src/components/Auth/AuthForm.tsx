@@ -5,16 +5,20 @@ import Input from "../UI/Input";
 import * as Yup from "yup";
 import Button from "../UI/Button";
 import TextError from "../UI/TextError";
+import CaptchaForm from "./CaptchaForm";
+import Loader from "../UI/Loader";
 
 interface AuthFormProps {
   initialValues: IAuthFormValues;
   validationSchema: Yup.SchemaOf<IAuthFormValidation>;
+  captcha: string;
   onSubmit: (values: IAuthFormValues) => void;
 }
 
 const AuthForm: FC<AuthFormProps> = ({
   initialValues,
   validationSchema,
+  captcha,
   onSubmit,
 }) => {
   return (
@@ -25,7 +29,7 @@ const AuthForm: FC<AuthFormProps> = ({
     >
       {({ status, isSubmitting }) => {
         return (
-          <Form className="flex flex-col bg-primary w-96 pt-4 pb-5 px-6 rounded text-white dark-gradient">
+          <Form className="auth-form">
             <div className="pb-9 text-2xl text-center">Authorization</div>
 
             <Input type="email" name="email" placeholder="Enter Email..." />
@@ -40,13 +44,26 @@ const AuthForm: FC<AuthFormProps> = ({
               <TextError>{status.message}</TextError>
             )}
 
+            {captcha && <CaptchaForm captcha={captcha} />}
+
             <Button
-              className="mt-9 disabled:opacity-50"
+              className="mt-9 disabled:bg-transparent"
               type="submit"
               disabled={isSubmitting}
             >
-              Login
+              {isSubmitting ? <Loader /> : "Login"}
             </Button>
+
+            <div className="text-center mt-6">
+              <a
+                className="text-xs hover:text-white-500/70 duration-200"
+                href="https://social-network.samuraijs.com/signUp"
+                target="_blank"
+                rel="noreferrer"
+              >
+                If you would like to register
+              </a>
+            </div>
           </Form>
         );
       }}

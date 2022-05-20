@@ -37,7 +37,7 @@ const ProfileStatus: FC<ProfileStatusProps> = ({
         value={status}
         autoFocus={true}
       />
-      <Button className="text-xs px-3 py-1.5" onClick={editModeOff}>
+      <Button className="text-xs px-6 py-0.5" onClick={editModeOff}>
         Save
       </Button>
     </div>

@@ -6,7 +6,7 @@ import {
   IAuthFormSubmit,
   IAuthFormValues,
 } from "../../types/authTypes";
-import { authApi } from "../../api/api";
+import { authApi, securityApi } from "../../api/api";
 
 export const fetchAuthUserData =
   () => async (dispatch: Dispatch<AuthAction>) => {
@@ -19,18 +19,18 @@ export const fetchAuthUserData =
     }
   };
 
+// ---------- Me ---------- //
 const setAuthUserData = (
   userId: number | null,
   email: string | null,
   login: string | null,
   isAuth: boolean
-): AuthAction => {
-  return {
-    type: AuthActionTypes.SET_AUTH_USER_DATA,
-    payload: { userId, email, login, isAuth },
-  };
-};
+): AuthAction => ({
+  type: AuthActionTypes.SET_AUTH_USER_DATA,
+  payload: { userId, email, login, isAuth },
+});
 
+// ---------- Auth ---------- //
 export const loginAttempt =
   (values: IAuthFormValues, { setStatus, setSubmitting }: IAuthFormSubmit) =>
   async (dispatch: ThunkDispatch<{}, {}, AuthAction>) => {
@@ -44,7 +44,11 @@ export const loginAttempt =
       setTimeout(() => {
         setStatus("");
       }, 2500);
-    } else if (data.resultCode === 0) {
+    } else if (data.resultCode === 10) {
+      setSubmitting(false);
+
+      await dispatch(fetchCaptcha());
+    } else {
       await dispatch(fetchAuthUserData());
     }
   };
@@ -56,3 +60,15 @@ export const logoutAttempt = () => async (dispatch: Dispatch<AuthAction>) => {
     dispatch(setAuthUserData(null, null, null, false));
   }
 };
+
+// ---------- Captcha ---------- //
+export const fetchCaptcha = () => async (dispatch: Dispatch<AuthAction>) => {
+  const response = await securityApi.fetchCaptchaUrl();
+
+  dispatch(fetchCaptchaSuccess(response.data.url));
+};
+
+const fetchCaptchaSuccess = (captcha: string): AuthAction => ({
+  type: AuthActionTypes.FETCH_CAPTCHA_URL_SUCCESS,
+  payload: captcha,
+});

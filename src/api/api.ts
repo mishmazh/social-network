@@ -32,6 +32,12 @@ export const authApi = {
   },
 };
 
+export const securityApi = {
+  fetchCaptchaUrl() {
+    return instance.get<{ url: string }>("security/get-captcha-url");
+  },
+};
+
 export const profilePageApi = {
   fetchProfile(userId: string | undefined) {
     return instance.get<IProfileData>(`profile/${userId}`);

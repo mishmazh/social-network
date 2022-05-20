@@ -8,8 +8,9 @@ module.exports = {
       xl: "1440px",
     },
     colors: {
-      primary: "#4c5f6b",
-      white: "#fff",
+      white: {
+        500: "#fff",
+      },
       black: {
         500: "#000",
       },

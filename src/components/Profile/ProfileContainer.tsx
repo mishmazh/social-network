@@ -2,7 +2,7 @@ import { FC, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
-import Loader from "../UI/Loader/Loader";
+import Loader from "../UI/Loader";
 import ProfileInfo from "./ProfileInfo";
 
 const ProfileContainer: FC = () => {

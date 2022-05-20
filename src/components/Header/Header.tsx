@@ -15,7 +15,7 @@ const Header: FC<HeaderProps> = ({ userLogin }) => {
 
   return (
     <header className="flex justify-center dark-gradient h-12">
-      <div className="flex justify-end items-center w-1/2">
+      <div className="flex justify-end items-center w-[920px]">
         <LogoutButton userLogin={userLogin} logoutHandler={logoutHandler} />
       </div>
     </header>

@@ -7,7 +7,7 @@ interface LogoutButtonProps {
 
 const LogoutButton: FC<LogoutButtonProps> = ({ userLogin, logoutHandler }) => {
   return (
-    <div className="flex justify-center items-center text-white">
+    <div className="flex justify-center items-center text-white-500">
       <div className="text-sm pb-1">{userLogin}</div>
       <div
         className="cursor-pointer pl-2 pr-3 text-2xl"

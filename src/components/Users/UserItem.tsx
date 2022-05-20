@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { IUser } from "../../types/usersPageTypes";
 import userAvatar from "../../assets/noUserAvatar.png";
-import Loader from "../UI/Loader/Loader";
+import Loader from "../UI/Loader";
 import { sliceString } from "../../helpers/stringHelpers";
 import Button from "../UI/Button";
 

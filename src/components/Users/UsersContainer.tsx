@@ -2,7 +2,7 @@ import { FC, useEffect } from "react";
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import Paginator from "../UI/Paginator";
-import Loader from "../UI/Loader/Loader";
+import Loader from "../UI/Loader";
 import UsersList from "./UsersList";
 
 const UsersContainer: FC = () => {
@@ -30,7 +30,7 @@ const UsersContainer: FC = () => {
   };
 
   return (
-    <div className="dark-gradient w-full text-white p-5 rounded mb-3">
+    <div className="dark-gradient w-full text-white-500 p-5 rounded mb-3">
       <Paginator
         totalUsersCount={totalUsersCount}
         portionSize={10}
@@ -38,7 +38,7 @@ const UsersContainer: FC = () => {
         changePage={changePage}
       />
       {isPageLoading ? (
-        <Loader />
+        <Loader className="h-screen" />
       ) : (
         <UsersList
           users={users}

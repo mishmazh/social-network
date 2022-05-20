@@ -8,13 +8,16 @@ import {
 } from "../../types/authTypes";
 import { useActions } from "../../hooks/useActions";
 import Modal from "../UI/Modal";
+import { useTypedSelector } from "../../hooks/useTypedSelector";
 
 const AuthContainer: FC = () => {
+  const { captcha } = useTypedSelector((state) => state.auth);
   const { loginAttempt } = useActions();
 
   const initialValues: IAuthFormValues = {
     email: "",
     password: "",
+    captcha: "",
   };
 
   const validationSchema: Yup.SchemaOf<IAuthFormValidation> = Yup.object({
@@ -34,13 +37,12 @@ const AuthContainer: FC = () => {
       <AuthForm
         initialValues={initialValues}
         validationSchema={validationSchema}
+        captcha={captcha}
         onSubmit={onSubmit as () => void}
       />
 
       <Modal>
-        <p>
-          Для того, чтобы протестировать соц. сеть, используйте данные ниже:
-        </p>
+        <p>To test the social network, use the authorization data below:</p>
         <p>
           Email: <strong>free@samuraijs.com</strong>
         </p>

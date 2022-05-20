@@ -28,7 +28,7 @@ const Paginator: FC<PaginatorProps> = ({
 
   return (
     <div className="flex mb-8 text-sm">
-      <div className="flex bg-white rounded text-black-500 overflow-hidden">
+      <div className="flex bg-white-500 rounded text-black-500 overflow-hidden">
         {/* ---------- Стрелка влево ----------  */}
         {portionNumber > 1 && (
           <Button
@@ -52,7 +52,7 @@ const Paginator: FC<PaginatorProps> = ({
               <div
                 className={
                   currentPage === pageNumber
-                    ? "pagination-page-number bg-black-500/30 text-white"
+                    ? "pagination-page-number bg-black-500/30 text-white-500"
                     : "pagination-page-number hover-dark-gradient"
                 }
                 onClick={() => changePage(pageNumber)}

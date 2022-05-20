@@ -29,7 +29,7 @@ const ProfileInfo: FC<ProfileInfoProps> = ({
 
   return (
     <div className="w-full">
-      <div className="flex text-white ">
+      <div className="flex text-white-500 ">
         <div className="w-1/2 h-full mr-5 dark-gradient p-4 rounded">
           <img
             className="w-full rounded"

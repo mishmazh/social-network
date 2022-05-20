@@ -2,6 +2,7 @@
 export interface IAuthFormValues {
   email: string;
   password: string;
+  captcha: string;
   // rememberMe: boolean;
 }
 
@@ -48,11 +49,12 @@ export interface AuthState {
   email: string | null;
   login: string | null;
   isAuth: boolean;
-  captchaUrl: string | null;
+  captcha: string;
 }
 
 export enum AuthActionTypes {
   SET_AUTH_USER_DATA = "SET_AUTH_USER_DATA",
+  FETCH_CAPTCHA_URL_SUCCESS = "FETCH_CAPTCHA_URL_SUCCESS",
 }
 
 interface setAuthUserData {
@@ -65,4 +67,9 @@ interface setAuthUserData {
   };
 }
 
-export type AuthAction = setAuthUserData;
+interface fetchCaptchaUrlSuccess {
+  type: AuthActionTypes.FETCH_CAPTCHA_URL_SUCCESS;
+  payload: string;
+}
+
+export type AuthAction = setAuthUserData | fetchCaptchaUrlSuccess;

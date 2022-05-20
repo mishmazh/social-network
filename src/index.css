@@ -4,24 +4,40 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :focus,
+  :active {
+    @apply outline-none;
+  }
+
+  a {
+    @apply outline-none;
+  }
+}
+
 .app-content {
-  @apply bg-[url("assets/back.jpg")] bg-cover backdrop-blur w-full font-catamaran;
+  @apply bg-[url("assets/back.jpg")] bg-cover w-full font-catamaran;
 }
 
 .dark-gradient {
   @apply bg-black-500/60 backdrop-blur shadow-sm;
 }
 
+.hover-dark-gradient {
+  @apply hover:bg-black-500/30 hover:text-white-500 duration-100;
+}
+
 .upload-avatar-button {
-  @apply block rounded mt-3 py-2.5 text-center duration-200 text-sm cursor-pointer bg-white text-black-500;
+  @apply block rounded mt-3 pt-2.5 pb-2 text-center duration-200 text-sm cursor-pointer bg-white-500 text-black-500;
 }
 
 .navbar-button {
-  @apply text-lg py-1 px-3 rounded cursor-pointer duration-100 hover:bg-black-500/60 hover:text-white;
+  @apply text-lg py-1 px-3 rounded cursor-pointer duration-100 hover:bg-black-500/60 hover:text-white-500;
 }
 
-.hover-dark-gradient {
-  @apply hover:bg-black-500/30 hover:text-white duration-100;
+/* ---------- Auth Form ---------- */
+.auth-form {
+  @apply flex flex-col w-96 pt-4 pb-3 px-6 rounded text-white-500 dark-gradient;
 }
 
 /* ---------- Paginator ---------- */
@@ -33,9 +49,31 @@
   @apply pt-2 px-3 cursor-pointer;
 }
 
-:focus,
-:active {
-  outline: none;
+/* ---------- Loader ---------- */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader:after {
+  content: " ";
+  display: block;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: loader 1.2s linear infinite;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 ::-webkit-scrollbar {
