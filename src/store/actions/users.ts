@@ -10,12 +10,18 @@ import { ActionCreator } from "redux";
 import { AxiosPromise } from "axios";
 
 export const fetchUsers =
-  (currentPage: number, pageSize: number) =>
+  (currentPage: number, pageSize: number, friend: boolean) =>
   async (dispatch: Dispatch<UsersAction>) => {
+    let response;
     dispatch(setPageLoading(true));
     dispatch(setCurrentPage(currentPage));
 
-    const response = await usersPageApi.fetchUsers(currentPage, pageSize);
+    if (friend) {
+      response = await usersPageApi.fetchFollowers(currentPage, pageSize);
+    } else {
+      response = await usersPageApi.fetchUsers(currentPage, pageSize);
+    }
+
     const data = response.data;
 
     dispatch(setTotalUsersCount(data.totalCount));
@@ -24,21 +30,25 @@ export const fetchUsers =
     dispatch(setPageLoading(false));
   };
 
-const setUsers = (users: IUser[]): UsersAction => {
-  return { type: UsersActionTypes.SET_USERS, payload: users };
-};
+const setUsers = (users: IUser[]): UsersAction => ({
+  type: UsersActionTypes.SET_USERS,
+  payload: users,
+});
 
-const setPageLoading = (isLoading: boolean): UsersAction => {
-  return { type: UsersActionTypes.SET_PAGE_LOADING, payload: isLoading };
-};
+const setPageLoading = (isLoading: boolean): UsersAction => ({
+  type: UsersActionTypes.SET_PAGE_LOADING,
+  payload: isLoading,
+});
 
-const setTotalUsersCount = (usersCount: number): UsersAction => {
-  return { type: UsersActionTypes.SET_TOTAL_USERS_COUNT, payload: usersCount };
-};
+const setTotalUsersCount = (usersCount: number): UsersAction => ({
+  type: UsersActionTypes.SET_TOTAL_USERS_COUNT,
+  payload: usersCount,
+});
 
-const setCurrentPage = (currentPage: number): UsersAction => {
-  return { type: UsersActionTypes.SET_CURRENT_PAGE, payload: currentPage };
-};
+const setCurrentPage = (currentPage: number): UsersAction => ({
+  type: UsersActionTypes.SET_CURRENT_PAGE,
+  payload: currentPage,
+});
 
 // ---------- FOLLOW-UNFOLLOW ---------- //
 export const followUser =
@@ -77,18 +87,18 @@ const setFollowing = async (
   dispatch(setFollowLoading(false, userId));
 };
 
-const followUserSuccess = (userId: number): UsersAction => {
-  return { type: UsersActionTypes.FOLLOW_USER, payload: userId };
-};
+const followUserSuccess = (userId: number): UsersAction => ({
+  type: UsersActionTypes.FOLLOW_USER,
+  payload: userId,
+});
 
-const unfollowUserSuccess = (userId: number): UsersAction => {
-  return { type: UsersActionTypes.UNFOLLOW_USER, payload: userId };
-};
+const unfollowUserSuccess = (userId: number): UsersAction => ({
+  type: UsersActionTypes.UNFOLLOW_USER,
+  payload: userId,
+});
 
-const setFollowLoading = (isLoading: boolean, userId: number): UsersAction => {
-  return {
-    type: UsersActionTypes.SET_FOLLOW_LOADING,
-    isLoading,
-    userId,
-  };
-};
+const setFollowLoading = (isLoading: boolean, userId: number): UsersAction => ({
+  type: UsersActionTypes.SET_FOLLOW_LOADING,
+  isLoading,
+  userId,
+});

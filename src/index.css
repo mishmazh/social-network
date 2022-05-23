@@ -15,8 +15,8 @@
   }
 }
 
-.app-content {
-  @apply bg-[url("assets/back.jpg")] bg-cover w-full font-catamaran;
+.layout {
+  @apply bg-[url("assets/back.jpg")] bg-cover font-catamaran h-screen;
 }
 
 .dark-gradient {
@@ -46,14 +46,13 @@
 }
 
 .pagination-page-number {
-  @apply pt-2 px-3 cursor-pointer;
+  @apply py-1.5 px-3 cursor-pointer;
 }
 
 /* ---------- Loader ---------- */
 .loader {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .loader:after {
@@ -76,6 +75,7 @@
   }
 }
 
+/* ---------- slider ---------- */
 ::-webkit-scrollbar {
   width: 12px;
   background-color: #f9f9fd;

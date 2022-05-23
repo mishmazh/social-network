@@ -6,7 +6,7 @@ export interface IPhotos {
 export interface IContacts {
   github: string | null;
   vk: string | null;
-  facebook: string | null | undefined;
+  facebook: string | null;
   instagram: string | null;
   twitter: string | null;
   website: string | null;
@@ -41,15 +41,13 @@ export interface IProfileAvatarData {
 export interface ProfileState {
   profileData: IProfileData;
   profileStatus: string;
-  profileAvatar: string | null;
-  isLoading: boolean;
+  isProfileLoading: boolean;
 }
 
 export enum ProfileActionTypes {
   SET_PROFILE = "profile/SET_PROFILE",
   SET_STATUS = "profile/SET_STATUS",
   SET_LOADING = "profile/SET_LOADING",
-  SET_AVATAR = "profile/SET_AVATAR",
   UPDATE_AVATAR = "profile/UPDATE_AVATAR",
 }
 
@@ -61,11 +59,6 @@ interface SetProfileAction {
 interface SetStatusAction {
   type: ProfileActionTypes.SET_STATUS;
   payload: string;
-}
-
-interface SetAvatarAction {
-  type: ProfileActionTypes.SET_AVATAR;
-  payload: string | null;
 }
 
 interface UpdateAvatarAction {
@@ -81,6 +74,5 @@ interface SetLoadingAction {
 export type ProfileAction =
   | SetProfileAction
   | SetStatusAction
-  | SetAvatarAction
   | UpdateAvatarAction
   | SetLoadingAction;

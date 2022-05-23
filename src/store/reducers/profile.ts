@@ -8,8 +8,7 @@ import {
 const initialState: ProfileState = {
   profileData: {} as IProfileData,
   profileStatus: "",
-  profileAvatar: null,
-  isLoading: false,
+  isProfileLoading: false,
 };
 
 const profileReducer = (
@@ -22,9 +21,7 @@ const profileReducer = (
     case ProfileActionTypes.SET_STATUS:
       return { ...state, profileStatus: action.payload };
     case ProfileActionTypes.SET_LOADING:
-      return { ...state, isLoading: action.payload };
-    case ProfileActionTypes.SET_AVATAR:
-      return { ...state, profileAvatar: action.payload };
+      return { ...state, isProfileLoading: action.payload };
     case ProfileActionTypes.UPDATE_AVATAR:
       return {
         ...state,

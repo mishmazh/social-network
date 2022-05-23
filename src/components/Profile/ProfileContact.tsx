@@ -8,8 +8,14 @@ interface ProfileContactProps {
 const ProfileContact: FC<ProfileContactProps> = ({
   contactName,
   contactValue,
-}) => {
-  return <div>{contactValue && contactName}</div>;
-};
+}) => (
+  <>
+    {contactValue ? (
+      <div>
+        {contactName}: <span className="opacity-70 ml-1">{contactValue}</span>
+      </div>
+    ) : null}
+  </>
+);
 
 export default ProfileContact;

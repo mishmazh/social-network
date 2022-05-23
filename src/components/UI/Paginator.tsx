@@ -21,15 +21,17 @@ const Paginator: FC<PaginatorProps> = ({
     pages.push(i);
   }
 
-  const [portionNumber, setPortionNumber] = useState(1);
+  const [portionNumber, setPortionNumber] = useState(
+    Math.ceil(currentPage / 10)
+  );
   const portionCount = Math.ceil(pagesCount / portionSize);
   const leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
   const rightPortionPageNumber = portionNumber * portionSize;
 
   return (
-    <div className="flex mb-8 text-sm">
+    <div className="flex text-sm">
       <div className="flex bg-white-500 rounded text-black-500 overflow-hidden">
-        {/* ---------- Стрелка влево ----------  */}
+        {/* ---------- Arrow left ----------  */}
         {portionNumber > 1 && (
           <Button
             className="pagination-arrow hover-dark-gradient"
@@ -63,7 +65,7 @@ const Paginator: FC<PaginatorProps> = ({
             );
           })}
 
-        {/* ---------- Стрелка вправо ----------  */}
+        {/* ---------- Arrow right ----------  */}
         {portionCount > portionNumber && (
           <Button
             className="pagination-arrow hover-dark-gradient"

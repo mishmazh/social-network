@@ -1,18 +1,28 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Navbar: FC = () => {
+interface NavbarProps {
+  logoutHandler: () => void;
+}
+
+const Navbar: FC<NavbarProps> = ({ logoutHandler }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="w-full max-w-[160px] pr-3">
+    <nav className="row-start-2 row-end-3 col-start-2 col-end-3">
       <div className="navbar-button" onClick={() => navigate("/profile")}>
         My profile
       </div>
       <div className="navbar-button" onClick={() => navigate("/users")}>
         Users
       </div>
-    </div>
+      <div className="navbar-button" onClick={() => navigate("/followers")}>
+        Followers
+      </div>
+      <div className="navbar-button mt-5" onClick={logoutHandler}>
+        Logout
+      </div>
+    </nav>
   );
 };
 

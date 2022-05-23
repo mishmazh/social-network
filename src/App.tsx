@@ -1,16 +1,20 @@
 import { FC, useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import AuthContainer from "./components/Auth/AuthContainer";
-import Header from "./components/Header/Header";
+import Header from "./components/Header";
 import Navbar from "./components/Navbar";
-import ProfileContainer from "./components/Profile/ProfileContainer";
-import UsersContainer from "./components/Users/UsersContainer";
+import Profile from "./components/Profile/Profile";
 import { useActions } from "./hooks/useActions";
 import { useTypedSelector } from "./hooks/useTypedSelector";
+import Users from "./components/Users/Users";
 
 const App: FC = () => {
-  const { isAuth, login } = useTypedSelector((state) => state.auth);
-  const { fetchAuthUserData } = useActions();
+  const { isAuth } = useTypedSelector((state) => state.auth);
+  const { fetchAuthUserData, logoutAttempt } = useActions();
+
+  const logoutHandler = () => {
+    logoutAttempt();
+  };
 
   useEffect(() => {
     fetchAuthUserData();
@@ -20,6 +24,7 @@ const App: FC = () => {
     <Routes>
       <Route path="/" element={<AuthContainer />} />
       <Route path="/users" element={<Navigate to="/" />} />
+      <Route path="/followers" element={<Navigate to="/" />} />
       <Route path="/profile" element={<Navigate to="/" />} />
       <Route path="/profile/:userProfileId" element={<Navigate to="/" />} />
     </Routes>
@@ -27,29 +32,32 @@ const App: FC = () => {
 
   if (isAuth) {
     routes = (
-      <div className="h-full pb-4">
-        <Header userLogin={login} />
-
-        <div className="flex justify-center pt-3">
-          <div className="flex w-full max-w-4xl">
-            <Navbar />
-
-            <Routes>
-              <Route path="/" element={<Navigate to="/profile" />} />
-              <Route path="/users" element={<UsersContainer />} />
-              <Route
-                path="/profile/:userProfileId"
-                element={<ProfileContainer />}
-              />
-              <Route path="/profile" element={<ProfileContainer />} />
-            </Routes>
-          </div>
-        </div>
-      </div>
+      <Routes>
+        <Route path="/" element={<Navigate to="/profile" />} />
+        <Route
+          path="/users"
+          element={<Users isFriend={false} people="People" />}
+        />
+        <Route
+          path="/followers"
+          element={<Users isFriend={true} people="Followers" />}
+        />
+        <Route path="/profile/:userProfileId" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
     );
   }
 
-  return <div className="app-content">{routes}</div>;
+  return (
+    <div className="layout">
+      <div className="grid grid-rows-[45px_1fr] grid-cols-[2fr_140px_3fr_2fr] gap-3 h-screen">
+        <Header />
+
+        <Navbar logoutHandler={logoutHandler} />
+        {routes}
+      </div>
+    </div>
+  );
 };
 
 export default App;

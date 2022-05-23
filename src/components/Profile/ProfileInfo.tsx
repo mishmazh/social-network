@@ -1,13 +1,12 @@
-import { ChangeEvent, FC } from "react";
-import { IProfileData } from "../../types/profilePageTypes";
-import noUserAvatar from "../../assets/noUserAvatar.png";
+import { FC } from "react";
+import { IProfileData, IContacts } from "../../types/profilePageTypes";
 import ProfileStatus from "./ProfileStatus";
 import Delimiter from "../UI/Delimiter";
+import ProfileContact from "./ProfileContact";
 
 interface ProfileInfoProps {
   profileData: IProfileData;
   profileStatus: string;
-  profileAvatar: string | null;
   isOwner: boolean;
   updateAvatar: (avatarFile: File) => void;
   updateStatus: (status: string) => void;
@@ -16,83 +15,66 @@ interface ProfileInfoProps {
 const ProfileInfo: FC<ProfileInfoProps> = ({
   profileData,
   profileStatus,
-  profileAvatar,
   isOwner,
-  updateAvatar,
   updateStatus,
 }) => {
-  const onChangeAvatar = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files !== null) {
-      updateAvatar(e.target.files[0]);
-    }
-  };
+  const {
+    fullName,
+    aboutMe,
+    lookingForAJobDescription,
+    lookingForAJob,
+    contacts,
+  } = profileData;
 
   return (
     <div className="w-full">
-      <div className="flex text-white-500 ">
-        <div className="w-1/2 h-full mr-5 dark-gradient p-4 rounded">
-          <img
-            className="w-full rounded"
-            src={profileAvatar !== null ? profileAvatar : noUserAvatar}
-            alt="profileAvatar"
-          />
-          {isOwner && (
-            <>
-              <input
-                className="hidden"
-                type="file"
-                id="inputFile"
-                onChange={onChangeAvatar}
-              />
-              <div>
-                <label
-                  className="upload-avatar-button hover-dark-gradient"
-                  htmlFor="inputFile"
-                >
-                  Upload avatar
-                </label>
-              </div>
-            </>
-          )}
-        </div>
+      <div className=" dark-gradient text-white-500 p-3 rounded">
+        <div className="text-xl">{fullName}</div>
 
-        <div className="dark-gradient text-sm w-full p-4 rounded">
-          <div className="text-xl">{profileData.fullName}</div>
+        <ProfileStatus
+          profileStatus={profileStatus}
+          updateStatus={updateStatus}
+          isOwner={isOwner}
+        />
 
-          <ProfileStatus
-            profileStatus={profileStatus}
-            updateStatus={updateStatus}
-            isOwner={isOwner}
-          />
+        <div className="pt-11">
+          <p className="text-base">Main information</p>
+          <Delimiter />
 
-          <div className="pt-11">
-            <p className="text-base">Main information</p>
-            <Delimiter />
+          <ul className="mt-5 mb-9 text-sm">
+            <li>
+              About me: <span className="opacity-70 ml-1">{aboutMe}</span>
+            </li>
+            <li>
+              Looking for a job?
+              {lookingForAJob ? (
+                <span className="opacity-70 ml-1">Yes</span>
+              ) : (
+                <span className="opacity-70 ml-1">No</span>
+              )}
+            </li>
+            <li>
+              About job:
+              <span className="opacity-70 ml-1">
+                {lookingForAJobDescription}
+              </span>
+            </li>
+          </ul>
 
-            <ul className="pt-5 pb-9 text-sm">
-              <li>
-                About me:{" "}
-                <span className="opacity-70">{profileData.aboutMe}</span>
-              </li>
-              <li>
-                Looking for a job?{" "}
-                {profileData.lookingForAJob ? (
-                  <span className="opacity-70">Yes</span>
-                ) : (
-                  <span className="opacity-70">No</span>
-                )}
-              </li>
-              <li>
-                About job:{" "}
-                <span className="opacity-70">
-                  {profileData.lookingForAJobDescription}
-                </span>
-              </li>
-            </ul>
+          <p className="text-base">Contacts:</p>
+          <Delimiter />
 
-            <p className="text-base">Contacts:</p>
-            <Delimiter />
-            <p className="opacity-70 mt-2">in developing</p>
+          <div className="mt-2 text-sm">
+            {contacts &&
+              Object.keys(contacts).map((contact, index) => {
+                return (
+                  <ProfileContact
+                    key={index}
+                    contactName={contact}
+                    contactValue={contacts[contact as keyof IContacts]}
+                  />
+                );
+              })}
           </div>
         </div>
       </div>

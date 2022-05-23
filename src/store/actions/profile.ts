@@ -18,23 +18,20 @@ export const fetchProfile =
     const data = response.data;
 
     dispatch(setProfileData(data));
-    dispatch(setAvatar(data.photos.large));
     await dispatch(fetchStatus(userId));
 
     dispatch(setLoading(false));
   };
 
-const setProfileData = (profileData: IProfileData): ProfileAction => {
-  return { type: ProfileActionTypes.SET_PROFILE, payload: profileData };
-};
+const setProfileData = (profileData: IProfileData): ProfileAction => ({
+  type: ProfileActionTypes.SET_PROFILE,
+  payload: profileData,
+});
 
-const setAvatar = (avatar: string | null): ProfileAction => {
-  return { type: ProfileActionTypes.SET_AVATAR, payload: avatar };
-};
-
-const setLoading = (isLoading: boolean): ProfileAction => {
-  return { type: ProfileActionTypes.SET_LOADING, payload: isLoading };
-};
+const setLoading = (isLoading: boolean): ProfileAction => ({
+  type: ProfileActionTypes.SET_LOADING,
+  payload: isLoading,
+});
 
 // ---------- Profile status ---------- //
 export const fetchStatus =
@@ -53,9 +50,10 @@ export const updateStatus =
     }
   };
 
-const setStatus = (status: string): ProfileAction => {
-  return { type: ProfileActionTypes.SET_STATUS, payload: status };
-};
+const setStatus = (status: string): ProfileAction => ({
+  type: ProfileActionTypes.SET_STATUS,
+  payload: status,
+});
 
 // ---------- Profile Avatar ---------- //
 export const updateAvatar =
@@ -68,9 +66,7 @@ export const updateAvatar =
     }
   };
 
-const updateAvatarSuccess = (avatarFile: IPhotos): ProfileAction => {
-  return {
-    type: ProfileActionTypes.UPDATE_AVATAR,
-    payload: avatarFile,
-  };
-};
+const updateAvatarSuccess = (avatarFile: IPhotos): ProfileAction => ({
+  type: ProfileActionTypes.UPDATE_AVATAR,
+  payload: avatarFile,
+});

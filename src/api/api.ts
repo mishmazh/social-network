@@ -70,4 +70,9 @@ export const usersPageApi = {
   unfollow(userId: number) {
     return instance.delete<IFollowingData>(`follow/${userId}`);
   },
+  fetchFollowers(currentPage: number, pageSize: number) {
+    return instance.get<IUsersData>(
+      `users?friend=true&page=${currentPage}&count=${pageSize}`
+    );
+  },
 };
