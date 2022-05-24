@@ -16,9 +16,6 @@ const Navbar: FC<NavbarProps> = ({ logoutHandler }) => {
       <div className="navbar-button" onClick={() => navigate("/users")}>
         Users
       </div>
-      <div className="navbar-button" onClick={() => navigate("/followers")}>
-        Followers
-      </div>
       <div className="navbar-button mt-5" onClick={logoutHandler}>
         Logout
       </div>

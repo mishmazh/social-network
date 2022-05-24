@@ -10,18 +10,13 @@ import { ActionCreator } from "redux";
 import { AxiosPromise } from "axios";
 
 export const fetchUsers =
-  (currentPage: number, pageSize: number, friend: boolean) =>
+  (currentPage: number, pageSize: number) =>
   async (dispatch: Dispatch<UsersAction>) => {
     let response;
     dispatch(setPageLoading(true));
     dispatch(setCurrentPage(currentPage));
 
-    if (friend) {
-      response = await usersPageApi.fetchFollowers(currentPage, pageSize);
-    } else {
-      response = await usersPageApi.fetchUsers(currentPage, pageSize);
-    }
-
+    response = await usersPageApi.fetchUsers(currentPage, pageSize);
     const data = response.data;
 
     dispatch(setTotalUsersCount(data.totalCount));

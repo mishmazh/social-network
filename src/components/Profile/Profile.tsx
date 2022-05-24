@@ -5,6 +5,7 @@ import { useTypedSelector } from "../../hooks/useTypedSelector";
 import Loader from "../UI/Loader";
 import ProfileInfo from "./ProfileInfo";
 import ProfileAvatar from "./ProfileAvatar";
+import Posts from "../Posts/Posts";
 
 const Profile: FC = () => {
   let { userProfileId } = useParams();
@@ -34,7 +35,7 @@ const Profile: FC = () => {
   };
 
   return (
-    <div className="flex row-start-2 row-end-3 col-start-3 col-end-4">
+    <div className="grid grid-rows-[0fr_1fr] grid-cols-[250px_450px] gap-3 row-start-2 row-end-3 col-start-3 col-end-4">
       {isProfileLoading ? (
         <Loader />
       ) : (
@@ -51,6 +52,7 @@ const Profile: FC = () => {
             updateStatus={updateStatus}
             isOwner={!userProfileId}
           />
+          <Posts />
         </>
       )}
     </div>

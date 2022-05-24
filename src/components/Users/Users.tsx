@@ -5,12 +5,7 @@ import { useActions } from "../../hooks/useActions";
 import Paginator from "../UI/Paginator";
 import Loader from "../UI/Loader";
 
-interface PeopleListProps {
-  isFriend: boolean;
-  people: string;
-}
-
-const Users: FC<PeopleListProps> = ({ isFriend, people }) => {
+const Users: FC = () => {
   const {
     users,
     totalUsersCount,
@@ -23,11 +18,11 @@ const Users: FC<PeopleListProps> = ({ isFriend, people }) => {
   const { fetchUsers, followUser, unfollowUser } = useActions();
 
   useEffect(() => {
-    fetchUsers(currentPage, pageSize, isFriend);
-  }, [isFriend]);
+    fetchUsers(currentPage, pageSize);
+  }, []);
 
   const changePage = (pageNumber: number) => {
-    fetchUsers(pageNumber, pageSize, isFriend);
+    fetchUsers(pageNumber, pageSize);
   };
 
   return (
@@ -44,7 +39,7 @@ const Users: FC<PeopleListProps> = ({ isFriend, people }) => {
           />
           <div className="my-9">
             <div className="text-sm pl-1">
-              {people}: <strong className="pl-1">{totalUsersCount}</strong>
+              People: <strong className="pl-1">{totalUsersCount}</strong>
             </div>
 
             {users.map((user) => (

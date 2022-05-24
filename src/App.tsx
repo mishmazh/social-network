@@ -34,14 +34,7 @@ const App: FC = () => {
     routes = (
       <Routes>
         <Route path="/" element={<Navigate to="/profile" />} />
-        <Route
-          path="/users"
-          element={<Users isFriend={false} people="People" />}
-        />
-        <Route
-          path="/followers"
-          element={<Users isFriend={true} people="Followers" />}
-        />
+        <Route path="/users" element={<Users />} />
         <Route path="/profile/:userProfileId" element={<Profile />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>

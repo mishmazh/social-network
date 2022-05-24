@@ -16,7 +16,7 @@ const ProfileAvatar: FC<ProfileAvatarProps> = ({
   const { photos } = profileData;
 
   return (
-    <div className="w-[400px] mr-3">
+    <div className="row-start-1 row-end-2 col-start-1 col-end-2">
       <div className="dark-gradient p-3 rounded">
         {photos && (
           <img
