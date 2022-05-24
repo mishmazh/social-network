@@ -47,7 +47,7 @@ const AuthForm: FC<AuthFormProps> = ({
             {captcha && <CaptchaForm captcha={captcha} />}
 
             <Button
-              className="mt-9 disabled:bg-transparent"
+              className="mt-9 hover-dark-gradient disabled:bg-transparent"
               type="submit"
               disabled={isSubmitting}
             >

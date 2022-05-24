@@ -33,7 +33,7 @@ const AuthContainer: FC = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="row-start-2 row-end-3 col-start-3 col-end-4">
       <AuthForm
         initialValues={initialValues}
         validationSchema={validationSchema}

@@ -5,7 +5,7 @@ import { useTypedSelector } from "../../hooks/useTypedSelector";
 import Loader from "../UI/Loader";
 import ProfileInfo from "./ProfileInfo";
 import ProfileAvatar from "./ProfileAvatar";
-import Posts from "../Posts/Posts";
+import PostsContainer from "../Posts/PostsContainer";
 
 const Profile: FC = () => {
   let { userProfileId } = useParams();
@@ -52,7 +52,7 @@ const Profile: FC = () => {
             updateStatus={updateStatus}
             isOwner={!userProfileId}
           />
-          <Posts />
+          <PostsContainer />
         </>
       )}
     </div>

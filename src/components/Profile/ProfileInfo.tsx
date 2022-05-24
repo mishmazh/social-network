@@ -29,7 +29,7 @@ const ProfileInfo: FC<ProfileInfoProps> = ({
   return (
     <div className="row-start-1 row-end-2 col-start-2 col-end-3">
       <div className="dark-gradient text-white-500 p-3 rounded">
-        <div className="text-xl">{fullName}</div>
+        <div className="text-2xl">{fullName}</div>
 
         <ProfileStatus
           profileStatus={profileStatus}

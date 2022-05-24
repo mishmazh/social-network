@@ -37,7 +37,7 @@
 
 /* ---------- Auth Form ---------- */
 .auth-form {
-  @apply flex flex-col w-96 pt-4 pb-3 px-6 rounded text-white-500 dark-gradient;
+  @apply flex flex-col w-4/5 pt-4 pb-3 px-6 rounded text-white-500 dark-gradient;
 }
 
 /* ---------- Paginator ---------- */

@@ -1,3 +1,18 @@
+// ---------- Formik ---------- //
+export interface IPostsFormValues {
+  message: string;
+}
+
+export interface IPostsFormValidation {
+  message: string;
+}
+
+// ---------- Profile ---------- //
+export interface IPost {
+  id: number | string;
+  message: string;
+}
+
 export interface IPhotos {
   small: string | null;
   large: string | null;
@@ -39,16 +54,23 @@ export interface IProfileAvatarData {
 }
 
 export interface ProfileState {
+  posts: IPost[];
   profileData: IProfileData;
   profileStatus: string;
   isProfileLoading: boolean;
 }
 
 export enum ProfileActionTypes {
+  ADD_POST = "profile/ADD_POST",
   SET_PROFILE = "profile/SET_PROFILE",
   SET_STATUS = "profile/SET_STATUS",
   SET_LOADING = "profile/SET_LOADING",
   UPDATE_AVATAR = "profile/UPDATE_AVATAR",
+}
+
+interface AddPostAction {
+  type: ProfileActionTypes.ADD_POST;
+  payload: IPost;
 }
 
 interface SetProfileAction {
@@ -72,6 +94,7 @@ interface SetLoadingAction {
 }
 
 export type ProfileAction =
+  | AddPostAction
   | SetProfileAction
   | SetStatusAction
   | UpdateAvatarAction

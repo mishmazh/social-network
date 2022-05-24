@@ -23,10 +23,10 @@ const App: FC = () => {
   let routes = (
     <Routes>
       <Route path="/" element={<AuthContainer />} />
-      <Route path="/users" element={<Navigate to="/" />} />
+      <Route path="/users" element={<Users />} />
       <Route path="/followers" element={<Navigate to="/" />} />
       <Route path="/profile" element={<Navigate to="/" />} />
-      <Route path="/profile/:userProfileId" element={<Navigate to="/" />} />
+      <Route path="/profile/:userProfileId" element={<Profile />} />
     </Routes>
   );
 
@@ -46,7 +46,7 @@ const App: FC = () => {
       <div className="grid grid-rows-[45px_1fr] grid-cols-[2fr_140px_3fr_2fr] gap-3 h-screen">
         <Header />
 
-        <Navbar logoutHandler={logoutHandler} />
+        <Navbar isAuth={isAuth} logoutHandler={logoutHandler} />
         {routes}
       </div>
     </div>

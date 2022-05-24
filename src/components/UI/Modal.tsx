@@ -6,7 +6,7 @@ interface ModalProps {
 
 const Modal: FC<ModalProps> = ({ children }) => {
   return (
-    <div className="absolute bottom-3 xl:text-sm text-white-500 dark-gradient w-80 p-2 rounded">
+    <div className="absolute bottom-3 xl:text-sm text-white-500 dark-gradient w-1/4 p-2 rounded">
       {children}
     </div>
   );

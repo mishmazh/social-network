@@ -2,6 +2,7 @@ import { Dispatch } from "react";
 import { ThunkDispatch } from "redux-thunk";
 import {
   IPhotos,
+  IPost,
   IProfileData,
   ProfileAction,
   ProfileActionTypes,
@@ -69,4 +70,10 @@ export const updateAvatar =
 const updateAvatarSuccess = (avatarFile: IPhotos): ProfileAction => ({
   type: ProfileActionTypes.UPDATE_AVATAR,
   payload: avatarFile,
+});
+
+// ---------- Posts ---------- //
+export const addPost = (newPost: IPost): ProfileAction => ({
+  type: ProfileActionTypes.ADD_POST,
+  payload: newPost,
 });
