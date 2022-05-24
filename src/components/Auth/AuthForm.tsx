@@ -29,7 +29,7 @@ const AuthForm: FC<AuthFormProps> = ({
     >
       {({ status, isSubmitting }) => {
         return (
-          <Form className="auth-form">
+          <Form className="flex flex-col w-4/5 pt-4 pb-3 px-6 rounded text-white-500 dark-gradient">
             <div className="pb-9 text-2xl text-center">Authorization</div>
 
             <Input type="email" name="email" placeholder="Enter Email..." />

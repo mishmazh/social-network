@@ -27,25 +27,20 @@
   @apply hover:bg-black-500/30 hover:text-white-500 duration-100;
 }
 
-.upload-avatar-button {
+.upload-avatar-btn {
   @apply block rounded mt-3 pt-2.5 pb-2 text-center duration-200 text-sm cursor-pointer bg-white-500 text-black-500;
 }
 
-.navbar-button {
+.nav-button {
   @apply text-lg py-1 px-3 rounded cursor-pointer duration-100 hover:bg-black-500/60 hover:text-white-500;
 }
 
-/* ---------- Auth Form ---------- */
-.auth-form {
-  @apply flex flex-col w-4/5 pt-4 pb-3 px-6 rounded text-white-500 dark-gradient;
-}
-
 /* ---------- Paginator ---------- */
-.pagination-arrow {
+.pag-arrow {
   @apply w-8 bg-transparent rounded-none;
 }
 
-.pagination-page-number {
+.pag-page-number {
   @apply py-1.5 px-3 cursor-pointer;
 }
 

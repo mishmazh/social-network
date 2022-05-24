@@ -1,5 +1,5 @@
 import { FC, useEffect } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import AuthContainer from "./components/Auth/AuthContainer";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
@@ -11,9 +11,11 @@ import Users from "./components/Users/Users";
 const App: FC = () => {
   const { isAuth } = useTypedSelector((state) => state.auth);
   const { fetchAuthUserData, logoutAttempt } = useActions();
+  const navigate = useNavigate();
 
   const logoutHandler = () => {
     logoutAttempt();
+    navigate("/");
   };
 
   useEffect(() => {

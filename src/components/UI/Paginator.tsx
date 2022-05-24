@@ -34,7 +34,7 @@ const Paginator: FC<PaginatorProps> = ({
         {/* ---------- Arrow left ----------  */}
         {portionNumber > 1 && (
           <Button
-            className="pagination-arrow hover-dark-gradient"
+            className="pag-arrow hover-dark-gradient"
             onClick={() => {
               setPortionNumber(portionNumber - 1);
             }}
@@ -54,8 +54,8 @@ const Paginator: FC<PaginatorProps> = ({
               <div
                 className={
                   currentPage === pageNumber
-                    ? "pagination-page-number bg-black-500/30 text-white-500"
-                    : "pagination-page-number hover-dark-gradient"
+                    ? "pag-page-number bg-black-500/30 text-white-500"
+                    : "pag-page-number hover-dark-gradient"
                 }
                 onClick={() => changePage(pageNumber)}
                 key={pageNumber}
@@ -68,7 +68,7 @@ const Paginator: FC<PaginatorProps> = ({
         {/* ---------- Arrow right ----------  */}
         {portionCount > portionNumber && (
           <Button
-            className="pagination-arrow hover-dark-gradient"
+            className="pag-arrow hover-dark-gradient"
             onClick={() => {
               setPortionNumber(portionNumber + 1);
             }}

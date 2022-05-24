@@ -36,7 +36,7 @@ const ProfileAvatar: FC<ProfileAvatarProps> = ({
             />
             <div>
               <label
-                className="upload-avatar-button hover-dark-gradient"
+                className="upload-avatar-btn hover-dark-gradient"
                 htmlFor="inputFile"
               >
                 Upload avatar
