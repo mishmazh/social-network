@@ -3,7 +3,7 @@ import { useTypedSelector } from "../../hooks/useTypedSelector";
 import PostItem from "./PostItem";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
-import { IPost, IPostsFormValidation } from "../../types/profilePageTypes";
+import { IPost, IPostsFormValidation } from "../../types/profileTypes";
 import TextArea from "../UI/TextArea";
 import Button from "../UI/Button";
 import { v4 as uuid } from "uuid";

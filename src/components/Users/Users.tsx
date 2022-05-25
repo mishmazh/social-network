@@ -26,11 +26,11 @@ const Users: FC = () => {
   };
 
   return (
-    <div className="row-start-2 row-end-3 col-start-3 col-end-4 dark-gradient text-white-500 p-5 rounded mb-3">
+    <>
       {isPageLoading ? (
-        <Loader />
+        <Loader className="loader-center" />
       ) : (
-        <>
+        <div className="row-start-2 row-end-3 col-start-3 col-end-4 dark-gradient text-white-500 p-5 rounded mb-3">
           <Paginator
             totalUsersCount={totalUsersCount}
             portionSize={10}
@@ -58,9 +58,9 @@ const Users: FC = () => {
             currentPage={currentPage}
             changePage={changePage}
           />
-        </>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

@@ -37,7 +37,7 @@ const Profile: FC = () => {
   return (
     <div className="grid grid-rows-[0fr_1fr] grid-cols-[250px_450px] gap-3 row-start-2 row-end-3 col-start-3 col-end-4">
       {isProfileLoading ? (
-        <Loader />
+        <Loader className="loader-center" />
       ) : (
         <>
           <ProfileAvatar

@@ -7,10 +7,12 @@ import Profile from "./components/Profile/Profile";
 import { useActions } from "./hooks/useActions";
 import { useTypedSelector } from "./hooks/useTypedSelector";
 import Users from "./components/Users/Users";
+import Loader from "./components/UI/Loader";
 
 const App: FC = () => {
   const { isAuth } = useTypedSelector((state) => state.auth);
-  const { fetchAuthUserData, logoutAttempt } = useActions();
+  const { isAppInit } = useTypedSelector((state) => state.app);
+  const { logoutAttempt, appInit } = useActions();
   const navigate = useNavigate();
 
   const logoutHandler = () => {
@@ -19,7 +21,7 @@ const App: FC = () => {
   };
 
   useEffect(() => {
-    fetchAuthUserData();
+    appInit();
   }, []);
 
   let routes = (
@@ -44,13 +46,17 @@ const App: FC = () => {
   }
 
   return (
-    <div className="layout">
-      <div className="grid grid-rows-[45px_1fr] grid-cols-[2fr_140px_3fr_2fr] gap-3 h-screen">
-        <Header />
+    <div className="bg-[url('assets/back.jpg')] bg-cover overflow-auto">
+      {!isAppInit ? (
+        <Loader className="loader-center" />
+      ) : (
+        <div className="grid grid-rows-[45px_1fr] grid-cols-[2fr_140px_3fr_2fr] gap-3 h-screen">
+          <Header />
 
-        <Navbar isAuth={isAuth} logoutHandler={logoutHandler} />
-        {routes}
-      </div>
+          <Navbar isAuth={isAuth} logoutHandler={logoutHandler} />
+          {routes}
+        </div>
+      )}
     </div>
   );
 };

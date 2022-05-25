@@ -9,8 +9,8 @@ import {
   IProfileAvatarData,
   IProfileData,
   IProfileStatusData,
-} from "../types/profilePageTypes";
-import { IFollowingData, IUsersData } from "../types/usersPageTypes";
+} from "../types/profileTypes";
+import { IFollowingData, IUsersData } from "../types/usersTypes";
 
 const instance = axios.create({
   withCredentials: true,

@@ -8,6 +8,7 @@ import {
 } from "../../types/authTypes";
 import { authApi, securityApi } from "../../api/api";
 
+// ---------- Auth me ---------- //
 export const fetchAuthUserData =
   () => async (dispatch: Dispatch<AuthAction>) => {
     const response = await authApi.authMe();
@@ -19,7 +20,6 @@ export const fetchAuthUserData =
     }
   };
 
-// ---------- Me ---------- //
 const setAuthUserData = (
   userId: number | null,
   email: string | null,
@@ -30,7 +30,7 @@ const setAuthUserData = (
   payload: { userId, email, login, isAuth },
 });
 
-// ---------- Auth ---------- //
+// ---------- Login ---------- //
 export const loginAttempt =
   (values: IAuthFormValues, { setStatus, setSubmitting }: IAuthFormSubmit) =>
   async (dispatch: ThunkDispatch<{}, {}, AuthAction>) => {
@@ -53,6 +53,7 @@ export const loginAttempt =
     }
   };
 
+// ---------- Logout ---------- //
 export const logoutAttempt = () => async (dispatch: Dispatch<AuthAction>) => {
   const response = await authApi.logout();
 
@@ -69,6 +70,6 @@ export const fetchCaptcha = () => async (dispatch: Dispatch<AuthAction>) => {
 };
 
 const fetchCaptchaSuccess = (captcha: string): AuthAction => ({
-  type: AuthActionTypes.FETCH_CAPTCHA_URL_SUCCESS,
+  type: AuthActionTypes.FETCH_CAPTCHA_SUCCESS,
   payload: captcha,
 });

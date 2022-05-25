@@ -5,6 +5,10 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    @apply font-catamaran;
+  }
+
   :focus,
   :active {
     @apply outline-none;
@@ -15,10 +19,7 @@
   }
 }
 
-.layout {
-  @apply bg-[url("assets/back.jpg")] bg-cover font-catamaran h-screen;
-}
-
+/* ---------- Block styles ---------- */
 .dark-gradient {
   @apply bg-black-500/60 backdrop-blur shadow-sm;
 }
@@ -45,20 +46,39 @@
 }
 
 /* ---------- Loader ---------- */
+.loader-center {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .loader {
   display: flex;
   justify-content: center;
 }
 
-.loader:after {
+.loader:after,
+.loader-center:after {
   content: " ";
   display: block;
-  width: 27px;
-  height: 27px;
-  border-radius: 50%;
   border: 3px solid #fff;
+  border-radius: 50%;
   border-color: #fff transparent #fff transparent;
   animation: loader 1.2s linear infinite;
+}
+
+.loader:after {
+  width: 27px;
+  height: 27px;
+}
+.loader-center:after {
+  width: 67px;
+  height: 67px;
 }
 
 @keyframes loader {

@@ -2,7 +2,7 @@ import {
   UsersAction,
   UsersActionTypes,
   UsersState,
-} from "../../types/usersPageTypes";
+} from "../../types/usersTypes";
 import { updateObjectInArray } from "../../helpers/objectHelpers";
 
 const initialState: UsersState = {

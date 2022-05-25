@@ -3,7 +3,7 @@ import {
   ProfileAction,
   ProfileActionTypes,
   ProfileState,
-} from "../../types/profilePageTypes";
+} from "../../types/profileTypes";
 
 const initialState: ProfileState = {
   posts: [

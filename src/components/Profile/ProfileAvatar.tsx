@@ -1,5 +1,5 @@
 import { ChangeEvent, FC } from "react";
-import { IProfileData } from "../../types/profilePageTypes";
+import { IProfileData } from "../../types/profileTypes";
 import noUserAvatar from "../../assets/noUserAvatar.png";
 
 interface ProfileAvatarProps {

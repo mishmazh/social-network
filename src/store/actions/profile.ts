@@ -6,7 +6,7 @@ import {
   IProfileData,
   ProfileAction,
   ProfileActionTypes,
-} from "../../types/profilePageTypes";
+} from "../../types/profileTypes";
 import { profilePageApi } from "../../api/api";
 
 // ---------- Profile page ---------- //

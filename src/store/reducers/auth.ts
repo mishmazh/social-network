@@ -15,7 +15,7 @@ const authReducer = (state = initialState, action: AuthAction) => {
         ...state,
         ...action.payload,
       };
-    case AuthActionTypes.FETCH_CAPTCHA_URL_SUCCESS:
+    case AuthActionTypes.FETCH_CAPTCHA_SUCCESS:
       return { ...state, captcha: action.payload };
     default:
       return state;
