@@ -33,7 +33,7 @@ const AuthContainer: FC = () => {
   };
 
   return (
-    <div className="row-start-2 row-end-3 col-start-3 col-end-4">
+    <div className="sm:row-start-2 sm:row-end-3 sm:col-start-3 sm:col-end-4 mb:row-start-1 mb:row-end-4 mb:col-start-1 mb:col-end-6">
       <AuthForm
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -41,15 +41,15 @@ const AuthContainer: FC = () => {
         onSubmit={onSubmit as () => void}
       />
 
-      <Modal>
-        <p>To test the social network, use the authorization data below:</p>
-        <p>
-          Email: <strong>free@samuraijs.com</strong>
-        </p>
-        <p>
-          Password: <strong>free</strong>
-        </p>
-      </Modal>
+      {/*<Modal>*/}
+      {/*  <p>To test the social network, use the authorization data below:</p>*/}
+      {/*  <p>*/}
+      {/*    Email: <strong>free@samuraijs.com</strong>*/}
+      {/*  </p>*/}
+      {/*  <p>*/}
+      {/*    Password: <strong>free</strong>*/}
+      {/*  </p>*/}
+      {/*</Modal>*/}
     </div>
   );
 };

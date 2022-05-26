@@ -29,7 +29,7 @@ const AuthForm: FC<AuthFormProps> = ({
     >
       {({ status, isSubmitting }) => {
         return (
-          <Form className="flex flex-col w-4/5 pt-4 pb-3 px-6 rounded text-white-500 dark-gradient">
+          <Form className="flex flex-col justify-center pt-4 pb-3 px-6 sm:rounded text-white-500 dark-gradient mb:rounded-none mb:h-full sm:h-auto">
             <div className="pb-9 text-2xl text-center">Authorization</div>
 
             <Input type="email" name="email" placeholder="Enter Email..." />
@@ -47,7 +47,7 @@ const AuthForm: FC<AuthFormProps> = ({
             {captcha && <CaptchaForm captcha={captcha} />}
 
             <Button
-              className="mt-9 hover-dark-gradient disabled:bg-transparent"
+              className="mt-9 hover-dark-gradient disabled:bg-transparent w-full"
               type="submit"
               disabled={isSubmitting}
             >

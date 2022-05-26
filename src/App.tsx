@@ -50,7 +50,7 @@ const App: FC = () => {
       {!isAppInit ? (
         <Loader className="loader-center" />
       ) : (
-        <div className="grid grid-rows-[45px_1fr] grid-cols-[2fr_140px_3fr_2fr] gap-3 h-screen">
+        <div className="grid sm:grid-rows-[45px_1fr] sm:grid-cols-[2fr_140px_3fr_2fr] mb:grid-rows-[0fr_1fr_0fr] mb:grid-cols-[0fr_1fr_0fr] sm:gap-3 mb:gap-0 h-screen">
           <Header />
 
           <Navbar isAuth={isAuth} logoutHandler={logoutHandler} />
