@@ -10,7 +10,7 @@ const Navbar: FC<NavbarProps> = ({ isAuth, logoutHandler }) => {
   const navigate = useNavigate();
 
   return (
-    <nav className="row-start-2 row-end-3 col-start-2 col-end-3">
+    <nav className="row-start-2 row-end-3 col-start-2 col-end-3 sm:inline xs:hidden">
       <ul>
         {isAuth && (
           <li className="nav-button" onClick={() => navigate("/profile")}>

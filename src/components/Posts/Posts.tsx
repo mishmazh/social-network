@@ -29,8 +29,8 @@ const Posts: FC<PostsProps> = ({
     >
       {() => {
         return (
-          <Form className="row-start-2 row-end-3 col-start-2 col-end-3 ">
-            <div className="dark-gradient p-3 rounded text-white-500">
+          <Form className="sm:row-start-2 sm:row-end-3 sm:col-start-2 sm:col-end-3 mb:row-start-3 mb:row-end-4">
+            <div className="dark-gradient p-3 sm:rounded mb:rounded-none text-white-500">
               <TextArea type="text" name="message" placeholder="What's new?" />
               <Button className="w-1/4 mb-6 hover-dark-gradient" type="submit">
                 Post

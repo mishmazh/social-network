@@ -33,7 +33,7 @@
 }
 
 .nav-button {
-  @apply text-lg py-1 px-3 rounded cursor-pointer duration-100 hover:bg-black-500/60 hover:text-white-500;
+  @apply md:text-lg sm:text-sm py-1 px-3 rounded cursor-pointer duration-100 hover:bg-black-500/60 hover:text-white-500;
 }
 
 /* ---------- Paginator ---------- */
