@@ -53,12 +53,12 @@ export interface AuthState {
 }
 
 export enum AuthActionTypes {
-  SET_AUTH_USER_DATA = "auth/SET_AUTH_USER_DATA",
+  SET_AUTH_ME = "auth/SET_AUTH_ME",
   FETCH_CAPTCHA_SUCCESS = "auth/FETCH_CAPTCHA_SUCCESS",
 }
 
-interface setAuthUserData {
-  type: AuthActionTypes.SET_AUTH_USER_DATA;
+interface setAuthMe {
+  type: AuthActionTypes.SET_AUTH_ME;
   payload: {
     userId: number | null;
     email: string | null;
@@ -72,4 +72,4 @@ interface fetchCaptchaSuccess {
   payload: string;
 }
 
-export type AuthAction = setAuthUserData | fetchCaptchaSuccess;
+export type AuthAction = setAuthMe | fetchCaptchaSuccess;

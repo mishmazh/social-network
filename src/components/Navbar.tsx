@@ -13,23 +13,23 @@ const Navbar: FC<NavbarProps> = ({ isAuth, logoutHandler }) => {
     <nav className="row-start-2 row-end-3 col-start-2 col-end-3 sm:inline xs:hidden">
       <ul>
         {isAuth && (
-          <li className="nav-button" onClick={() => navigate("/profile")}>
+          <li className="nav-btn" onClick={() => navigate("/profile")}>
             My profile
           </li>
         )}
 
-        <li className="nav-button" onClick={() => navigate("/users")}>
+        <li className="nav-btn" onClick={() => navigate("/users")}>
           Users
         </li>
 
         {isAuth && (
-          <li className="nav-button mt-5" onClick={logoutHandler}>
+          <li className="nav-btn mt-5" onClick={logoutHandler}>
             Logout
           </li>
         )}
 
         {!isAuth && (
-          <li className="nav-button" onClick={() => navigate("/")}>
+          <li className="nav-btn" onClick={() => navigate("/")}>
             Login
           </li>
         )}

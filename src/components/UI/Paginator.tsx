@@ -29,54 +29,52 @@ const Paginator: FC<PaginatorProps> = ({
   const rightPortionPageNumber = portionNumber * portionSize;
 
   return (
-    <div className="flex text-sm">
-      <div className="flex bg-white-500 rounded text-black-500 overflow-hidden">
-        {/* ---------- Arrow left ----------  */}
-        {portionNumber > 1 && (
-          <Button
-            className="pag-arrow hover-dark-gradient"
-            onClick={() => {
-              setPortionNumber(portionNumber - 1);
-            }}
-          >
-            <i className="fa-solid fa-angle-left" />
-          </Button>
-        )}
+    <div className="flex justify-between bg-white-500 text-black-500 text-sm rounded overflow-hidden">
+      {/* ---------- Arrow left ----------  */}
+      {portionNumber > 1 && (
+        <Button
+          className="pag-arrow hover-dark-gradient"
+          onClick={() => {
+            setPortionNumber(portionNumber - 1);
+          }}
+        >
+          <i className="fa-solid fa-angle-left" />
+        </Button>
+      )}
 
-        {pages
-          .filter(
-            (pageNumber) =>
-              pageNumber >= leftPortionPageNumber &&
-              pageNumber <= rightPortionPageNumber
-          )
-          .map((pageNumber) => {
-            return (
-              <div
-                className={
-                  currentPage === pageNumber
-                    ? "pag-page-number bg-black-500/30 text-white-500"
-                    : "pag-page-number hover-dark-gradient"
-                }
-                onClick={() => changePage(pageNumber)}
-                key={pageNumber}
-              >
-                {pageNumber}
-              </div>
-            );
-          })}
+      {pages
+        .filter(
+          (pageNumber) =>
+            pageNumber >= leftPortionPageNumber &&
+            pageNumber <= rightPortionPageNumber
+        )
+        .map((pageNumber) => {
+          return (
+            <div
+              className={
+                currentPage === pageNumber
+                  ? "pag-page-number bg-black-500/50 text-white-500"
+                  : "pag-page-number hover-dark-gradient"
+              }
+              onClick={() => changePage(pageNumber)}
+              key={pageNumber}
+            >
+              {pageNumber}
+            </div>
+          );
+        })}
 
-        {/* ---------- Arrow right ----------  */}
-        {portionCount > portionNumber && (
-          <Button
-            className="pag-arrow hover-dark-gradient"
-            onClick={() => {
-              setPortionNumber(portionNumber + 1);
-            }}
-          >
-            <i className="fa-solid fa-angle-right" />
-          </Button>
-        )}
-      </div>
+      {/* ---------- Arrow right ----------  */}
+      {portionCount > portionNumber && (
+        <Button
+          className="pag-arrow hover-dark-gradient"
+          onClick={() => {
+            setPortionNumber(portionNumber + 1);
+          }}
+        >
+          <i className="fa-solid fa-angle-right" />
+        </Button>
+      )}
     </div>
   );
 };

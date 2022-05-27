@@ -1,15 +1,15 @@
 import { AppAction, AppActionTypes, AppState } from "../../types/appTypes";
 
 const initialState: AppState = {
-  isAppInit: false,
+  isInit: false,
 };
 
 const appReducer = (state = initialState, action: AppAction) => {
   switch (action.type) {
-    case AppActionTypes.IS_APP_INIT:
+    case AppActionTypes.APP_INIT:
       return {
         ...state,
-        isAppInit: true,
+        isInit: true,
       };
     default:
       return state;

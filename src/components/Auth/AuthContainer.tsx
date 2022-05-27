@@ -33,7 +33,7 @@ const AuthContainer: FC = () => {
   };
 
   return (
-    <div className="sm:row-start-2 sm:row-end-3 sm:col-start-3 sm:col-end-4 mb:row-start-1 mb:row-end-4 mb:col-start-1 mb:col-end-6">
+    <div className="row-start-2 row-end-3 col-start-3 col-end-4">
       <AuthForm
         initialValues={initialValues}
         validationSchema={validationSchema}

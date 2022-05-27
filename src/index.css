@@ -19,7 +19,7 @@
   }
 }
 
-/* ---------- Block styles ---------- */
+/* ---------- background ---------- */
 .dark-gradient {
   @apply bg-black-500/60 backdrop-blur shadow-sm;
 }
@@ -28,24 +28,42 @@
   @apply hover:bg-black-500/30 hover:text-white-500 duration-100;
 }
 
-.upload-avatar-btn {
+/* ---------- UI ---------- */
+
+/* --- profile --- */
+.profile-upload-btn {
   @apply block rounded mt-3 pt-2.5 pb-2 text-center duration-200 text-sm cursor-pointer bg-white-500 text-black-500;
 }
 
-.nav-button {
+/* --- users --- */
+.users-follow-btn {
+  @apply py-2 px-3 sm:w-28 xs:w-16 text-xs rounded disabled:bg-transparent;
+}
+
+/* --- navbar --- */
+.nav-btn {
   @apply md:text-lg sm:text-sm py-1 px-3 rounded cursor-pointer duration-100 hover:bg-black-500/60 hover:text-white-500;
 }
 
-/* ---------- Paginator ---------- */
+/* --- paginator --- */
 .pag-arrow {
-  @apply w-8 bg-transparent rounded-none;
+  @apply w-full bg-transparent rounded-none;
 }
 
 .pag-page-number {
-  @apply py-1.5 px-3 cursor-pointer;
+  @apply w-full text-center pt-1.5 cursor-pointer;
 }
 
-/* ---------- Loader ---------- */
+/* ---------- responsive ---------- */
+.app-adapt {
+  @apply lg:grid-cols-[1fr_140px_3fr_1fr] md:grid-rows-[45px_1fr] md:grid-cols-[0.5fr_110px_3fr_0.5fr] sm:grid-rows-[45px_1fr] sm:grid-cols-[0fr_90px_1fr_0fr];
+}
+
+.profile-adapt {
+  @apply md:grid-cols-[220px_1fr] sm:grid-rows-[0fr_1fr] sm:grid-cols-[200px_1fr];
+}
+
+/* ---------- loader ---------- */
 .loader-center {
   position: absolute;
   left: 0;
@@ -90,12 +108,7 @@
   }
 }
 
-/* ---------- responsive ---------- */
-/*.auth-page-responsive {*/
-/*  @apply;*/
-/*}*/
-
-/* ---------- slider ---------- */
+/* ---------- scrollbar ---------- */
 ::-webkit-scrollbar {
   position: absolute;
   width: 12px;

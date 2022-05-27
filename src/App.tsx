@@ -11,7 +11,7 @@ import Loader from "./components/UI/Loader";
 
 const App: FC = () => {
   const { isAuth } = useTypedSelector((state) => state.auth);
-  const { isAppInit } = useTypedSelector((state) => state.app);
+  const { isInit } = useTypedSelector((state) => state.app);
   const { logoutAttempt, appInit } = useActions();
   const navigate = useNavigate();
 
@@ -47,10 +47,10 @@ const App: FC = () => {
 
   return (
     <div className="bg-[url('assets/back.jpg')] bg-cover overflow-auto">
-      {!isAppInit ? (
+      {!isInit ? (
         <Loader className="loader-center" />
       ) : (
-        <div className="sm:grid lg:grid-rows-[45px_1fr] lg:grid-cols-[2fr_140px_3fr_2fr] md:grid-rows-[45px_1fr] md:grid-cols-[0fr_140px_3fr_0fr] sm:grid-rows-[45px_1fr] sm:grid-cols-[0fr_90px_1fr_0fr] gap-3 h-screen">
+        <div className="sm:grid xl:grid-cols-[2fr_140px_3fr_2fr] lg:grid-rows-[45px_1fr] app-adapt gap-3 h-screen">
           <Header />
 
           <Navbar isAuth={isAuth} logoutHandler={logoutHandler} />

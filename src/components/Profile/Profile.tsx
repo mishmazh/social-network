@@ -35,7 +35,7 @@ const Profile: FC = () => {
   };
 
   return (
-    <div className="sm:grid md:grid-rows-[0fr_1fr] md:grid-cols-[250px_450px] sm:grid-rows-[0fr_1fr] sm:grid-cols-[200px_1fr] gap-3 row-start-2 row-end-3 col-start-3 col-end-4">
+    <div className="sm:grid lg:grid-cols-[250px_450px] md:grid-rows-[0fr_1fr] row-start-2 row-end-3 col-start-3 col-end-4 profile-adapt gap-3 mb-3">
       {isProfileLoading ? (
         <Loader className="loader-center" />
       ) : (

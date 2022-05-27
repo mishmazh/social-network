@@ -1,13 +1,13 @@
 export interface AppState {
-  isAppInit: boolean;
+  isInit: boolean;
 }
 
 export enum AppActionTypes {
-  IS_APP_INIT = "app/IS_APP_INIT",
+  APP_INIT = "app/APP_INIT",
 }
 
-interface isAppInitAction {
-  type: AppActionTypes.IS_APP_INIT;
+interface AppInitAction {
+  type: AppActionTypes.APP_INIT;
 }
 
-export type AppAction = isAppInitAction;
+export type AppAction = AppInitAction;

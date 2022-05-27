@@ -29,7 +29,7 @@ const UserItem: FC<UserItemProps> = ({
     <Button
       onClick={() => followUser(user.id)}
       disabled={isFollowLoading.some((id) => id === user.id)}
-      className="py-2 px-3 sm:w-28 xs:w-16 text-xs hover-dark-gradient rounded disabled:bg-transparent"
+      className="users-follow-btn hover-dark-gradient"
     >
       {isFollowLoading.some((id) => id === user.id) ? <Loader /> : "Follow"}
     </Button>
@@ -39,7 +39,7 @@ const UserItem: FC<UserItemProps> = ({
     <Button
       onClick={() => unfollowUser(user.id)}
       disabled={isFollowLoading.some((id) => id === user.id)}
-      className="py-2 px-3 sm:w-28 xs:w-16 text-xs hover-dark-gradient rounded disabled:bg-transparent"
+      className="users-follow-btn hover-dark-gradient"
     >
       {isFollowLoading.some((id) => id === user.id) ? <Loader /> : "Unfollow"}
     </Button>
@@ -48,7 +48,7 @@ const UserItem: FC<UserItemProps> = ({
   return (
     <div className="flex pt-5">
       <img
-        className="sm:w-16 sm:h-16 xs:w-14 xs:h-14 mr-3 rounded cursor-pointer"
+        className="md:w-16 md:h-16 xs:w-12 xs:h-12 mr-3 rounded cursor-pointer"
         onClick={navigateToProfile}
         src={user.photos.small != null ? user.photos.small : userAvatar}
         alt="userImg"
@@ -58,7 +58,7 @@ const UserItem: FC<UserItemProps> = ({
         <div>
           <div className="text-lg pb-0.5">
             <strong
-              className="sm:text-lg xs:text-sm cursor-pointer"
+              className="md:text-lg xs:text-xs cursor-pointer"
               onClick={navigateToProfile}
             >
               {user.name}

@@ -10,7 +10,7 @@ const initialState: AuthState = {
 
 const authReducer = (state = initialState, action: AuthAction) => {
   switch (action.type) {
-    case AuthActionTypes.SET_AUTH_USER_DATA:
+    case AuthActionTypes.SET_AUTH_ME:
       return {
         ...state,
         ...action.payload,

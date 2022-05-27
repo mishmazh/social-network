@@ -9,24 +9,23 @@ import {
 import { authApi, securityApi } from "../../api/api";
 
 // ---------- Auth me ---------- //
-export const fetchAuthUserData =
-  () => async (dispatch: Dispatch<AuthAction>) => {
-    const response = await authApi.authMe();
-    const data = response.data;
+export const fetchAuthMe = () => async (dispatch: Dispatch<AuthAction>) => {
+  const response = await authApi.authMe();
+  const data = response.data;
 
-    if (data.resultCode === 0) {
-      const { id, email, login } = data.data;
-      dispatch(setAuthUserData(id, email, login, true));
-    }
-  };
+  if (data.resultCode === 0) {
+    const { id, email, login } = data.data;
+    dispatch(setAuthMe(id, email, login, true));
+  }
+};
 
-const setAuthUserData = (
+const setAuthMe = (
   userId: number | null,
   email: string | null,
   login: string | null,
   isAuth: boolean
 ): AuthAction => ({
-  type: AuthActionTypes.SET_AUTH_USER_DATA,
+  type: AuthActionTypes.SET_AUTH_ME,
   payload: { userId, email, login, isAuth },
 });
 
@@ -49,7 +48,7 @@ export const loginAttempt =
 
       await dispatch(fetchCaptcha());
     } else {
-      await dispatch(fetchAuthUserData());
+      await dispatch(fetchAuthMe());
     }
   };
 
@@ -58,7 +57,7 @@ export const logoutAttempt = () => async (dispatch: Dispatch<AuthAction>) => {
   const response = await authApi.logout();
 
   if (response.data.resultCode === 0) {
-    dispatch(setAuthUserData(null, null, null, false));
+    dispatch(setAuthMe(null, null, null, false));
   }
 };
 
