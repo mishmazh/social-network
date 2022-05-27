@@ -1,13 +1,13 @@
 import { AppAction, AppActionTypes } from "../../types/appTypes";
-import { Dispatch } from "react";
 import { fetchAuthUserData } from "./auth";
+import { ThunkDispatch } from "redux-thunk";
 
 const appInitSuccess = () => ({
   type: AppActionTypes.IS_APP_INIT,
 });
 
-export const appInit = () => (dispatch: Dispatch<AppAction>) => {
-  const promise = dispatch(fetchAuthUserData() as any);
+export const appInit = () => (dispatch: ThunkDispatch<{}, {}, AppAction>) => {
+  const promise = dispatch(fetchAuthUserData());
 
   Promise.all([promise]).then(() => dispatch(appInitSuccess()));
 };
