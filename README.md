@@ -7,7 +7,7 @@ To test the social network, use the authorization data below:
 
 ## Functional:
 1. Authorization (login, captcha, validation)
-2. My profile, change avatar, change status
+2. My profile, change avatar, change status, write posts on the wall
 3. Users page, user profile
 
 ## Stack:
