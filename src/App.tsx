@@ -31,6 +31,7 @@ const App: FC = () => {
       <Route path="/followers" element={<Navigate to="/" />} />
       <Route path="/profile" element={<Navigate to="/" />} />
       <Route path="/profile/:userProfileId" element={<Profile />} />
+      <Route path="/:route" element={<Navigate to="/profile" />} />
     </Routes>
   );
 
@@ -41,6 +42,7 @@ const App: FC = () => {
         <Route path="/users" element={<Users />} />
         <Route path="/profile/:userProfileId" element={<Profile />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/:route" element={<Navigate to="/profile" />} />
       </Routes>
     );
   }
