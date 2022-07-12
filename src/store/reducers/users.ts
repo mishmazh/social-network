@@ -1,9 +1,14 @@
-import {
-  UsersAction,
-  UsersActionTypes,
-  UsersState,
-} from "../../types/usersTypes";
+import { IUser, UsersAction, UsersActionTypes } from "../../models/usersModels";
 import { updateObjectInArray } from "../../helpers/objectHelpers";
+
+interface UsersState {
+  users: IUser[];
+  totalUsersCount: number;
+  currentPage: number;
+  pageSize: number;
+  isPageLoading: boolean;
+  isFollowLoading: number[];
+}
 
 const initialState: UsersState = {
   users: [],

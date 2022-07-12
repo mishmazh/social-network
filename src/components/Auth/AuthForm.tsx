@@ -1,6 +1,6 @@
 import { Form, Formik } from "formik";
 import { FC } from "react";
-import { IAuthFormValidation, IAuthFormValues } from "../../types/authTypes";
+import { IAuthFormValidation, IAuthFormValues } from "../../models/authModels";
 import Input from "../UI/Input";
 import * as Yup from "yup";
 import Button from "../UI/Button";

@@ -1,4 +1,8 @@
-import { AppAction, AppActionTypes, AppState } from "../../types/appTypes";
+import { AppAction, AppActionTypes } from "../../models/appModels";
+
+interface AppState {
+  isInit: boolean;
+}
 
 const initialState: AppState = {
   isInit: false,

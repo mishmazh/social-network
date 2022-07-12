@@ -1,4 +1,12 @@
-import { AuthAction, AuthActionTypes, AuthState } from "../../types/authTypes";
+import { AuthAction, AuthActionTypes } from "../../models/authModels";
+
+interface AuthState {
+  userId: number | null;
+  email: string | null;
+  login: string | null;
+  isAuth: boolean;
+  captcha: string;
+}
 
 const initialState: AuthState = {
   userId: null,

@@ -44,14 +44,6 @@ export interface IAuthLogoutData {
   resultCode: number;
 }
 
-export interface AuthState {
-  userId: number | null;
-  email: string | null;
-  login: string | null;
-  isAuth: boolean;
-  captcha: string;
-}
-
 export enum AuthActionTypes {
   SET_AUTH_ME = "auth/SET_AUTH_ME",
   FETCH_CAPTCHA_SUCCESS = "auth/FETCH_CAPTCHA_SUCCESS",

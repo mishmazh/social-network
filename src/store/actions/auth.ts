@@ -5,8 +5,8 @@ import {
   AuthActionTypes,
   IAuthFormSubmit,
   IAuthFormValues,
-} from "../../types/authTypes";
-import { authApi, securityApi } from "../../api/api";
+} from "../../models/authModels";
+import { authApi, securityApi } from "../../axios/axios";
 
 // ---------- Auth me ---------- //
 export const fetchAuthMe = () => async (dispatch: Dispatch<AuthAction>) => {

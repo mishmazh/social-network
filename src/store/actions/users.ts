@@ -4,8 +4,8 @@ import {
   IUser,
   UsersAction,
   UsersActionTypes,
-} from "../../types/usersTypes";
-import { usersPageApi } from "../../api/api";
+} from "../../models/usersModels";
+import { usersPageApi } from "../../axios/axios";
 import { ActionCreator } from "redux";
 import { AxiosPromise } from "axios";
 

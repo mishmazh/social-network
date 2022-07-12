@@ -24,15 +24,6 @@ export interface IFollowingData {
   resultCode: number;
 }
 
-export interface UsersState {
-  users: IUser[];
-  totalUsersCount: number;
-  currentPage: number;
-  pageSize: number;
-  isPageLoading: boolean;
-  isFollowLoading: number[];
-}
-
 export enum UsersActionTypes {
   SET_PAGE_LOADING = "USERS/SET_PAGE_LOADING",
   SET_USERS = "USERS/SET_USERS",

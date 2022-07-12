@@ -1,4 +1,4 @@
-import { AppAction, AppActionTypes } from "../../types/appTypes";
+import { AppAction, AppActionTypes } from "../../models/appModels";
 import { fetchAuthMe } from "./auth";
 import { ThunkDispatch } from "redux-thunk";
 

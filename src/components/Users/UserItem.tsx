@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
-import { IUser } from "../../types/usersTypes";
+import { IUser } from "../../models/usersModels";
 import userAvatar from "../../assets/noUserAvatar.png";
 import Loader from "../UI/Loader";
 import { sliceString } from "../../helpers/stringHelpers";

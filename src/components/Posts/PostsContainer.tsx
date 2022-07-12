@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Posts from "./Posts";
 import * as Yup from "yup";
-import { IPost, IPostsFormValidation } from "../../types/profileTypes";
+import { IPost, IPostsFormValidation } from "../../models/profileModels";
 import { useActions } from "../../hooks/useActions";
 import { v4 as uuid } from "uuid";
 

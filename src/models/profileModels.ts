@@ -53,13 +53,6 @@ export interface IProfileAvatarData {
   };
 }
 
-export interface ProfileState {
-  posts: IPost[];
-  profileData: IProfileData;
-  profileStatus: string;
-  isProfileLoading: boolean;
-}
-
 export enum ProfileActionTypes {
   ADD_POST = "profile/ADD_POST",
   SET_PROFILE = "profile/SET_PROFILE",

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { IProfileData, IContacts } from "../../types/profileTypes";
+import { IProfileData, IContacts } from "../../models/profileModels";
 import ProfileStatus from "./ProfileStatus";
 import Delimiter from "../UI/Delimiter";
 import ProfileContact from "./ProfileContact";

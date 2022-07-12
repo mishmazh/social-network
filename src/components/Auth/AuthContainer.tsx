@@ -5,9 +5,8 @@ import {
   IAuthFormSubmit,
   IAuthFormValidation,
   IAuthFormValues,
-} from "../../types/authTypes";
+} from "../../models/authModels";
 import { useActions } from "../../hooks/useActions";
-import Modal from "../UI/Modal";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 
 const AuthContainer: FC = () => {
@@ -40,16 +39,6 @@ const AuthContainer: FC = () => {
         captcha={captcha}
         onSubmit={onSubmit as () => void}
       />
-
-      {/*<Modal>*/}
-      {/*  <p>To test the social network, use the authorization data below:</p>*/}
-      {/*  <p>*/}
-      {/*    Email: <strong>free@samuraijs.com</strong>*/}
-      {/*  </p>*/}
-      {/*  <p>*/}
-      {/*    Password: <strong>free</strong>*/}
-      {/*  </p>*/}
-      {/*</Modal>*/}
     </div>
   );
 };

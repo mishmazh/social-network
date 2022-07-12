@@ -47,16 +47,22 @@ const App: FC = () => {
 
   return (
     <div className="bg-[url('assets/back.jpg')] bg-cover overflow-auto">
-      {!isInit ? (
-        <Loader className="loader-center" />
-      ) : (
-        <div className="sm:grid xl:grid-cols-[1.5fr_140px_3fr_2fr] lg:grid-rows-[45px_1fr] app-adapt gap-3 h-screen">
-          <Header />
+      <div className="bg-black-500/50 overflow-auto">
+        {!isInit ? (
+          <Loader className="loader-center" />
+        ) : (
+          <div className="sm:grid xl:grid-cols-[1.5fr_140px_3fr_2fr] lg:grid-rows-[45px_1fr] app-adapt gap-3 h-screen">
+            <Header
+              isAuth={isAuth}
+              logoutHandler={logoutHandler}
+              navigate={navigate}
+            />
+            <Navbar isAuth={isAuth} logoutHandler={logoutHandler}></Navbar>
 
-          <Navbar isAuth={isAuth} logoutHandler={logoutHandler} />
-          {routes}
-        </div>
-      )}
+            {routes}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

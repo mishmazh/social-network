@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { IPost, IProfileData } from "../../types/profileTypes";
+import { IPost, IProfileData } from "../../models/profileModels";
 import userAvatar from "../../assets/noUserAvatar.png";
 
 interface PostItemProps {

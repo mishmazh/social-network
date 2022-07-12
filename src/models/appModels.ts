@@ -1,7 +1,3 @@
-export interface AppState {
-  isInit: boolean;
-}
-
 export enum AppActionTypes {
   APP_INIT = "app/APP_INIT",
 }

@@ -6,8 +6,8 @@ import {
   IProfileData,
   ProfileAction,
   ProfileActionTypes,
-} from "../../types/profileTypes";
-import { profilePageApi } from "../../api/api";
+} from "../../models/profileModels";
+import { profilePageApi } from "../../axios/axios";
 
 // ---------- Profile page ---------- //
 export const fetchProfile =

@@ -4,13 +4,13 @@ import {
   IAuthLoginData,
   IAuthLogoutData,
   IAuthMeData,
-} from "../types/authTypes";
+} from "../models/authModels";
 import {
   IProfileAvatarData,
   IProfileData,
   IProfileStatusData,
-} from "../types/profileTypes";
-import { IFollowingData, IUsersData } from "../types/usersTypes";
+} from "../models/profileModels";
+import { IFollowingData, IUsersData } from "../models/usersModels";
 
 const instance = axios.create({
   withCredentials: true,

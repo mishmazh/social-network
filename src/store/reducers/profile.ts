@@ -1,9 +1,16 @@
 import {
+  IPost,
   IProfileData,
   ProfileAction,
   ProfileActionTypes,
-  ProfileState,
-} from "../../types/profileTypes";
+} from "../../models/profileModels";
+
+interface ProfileState {
+  posts: IPost[];
+  profileData: IProfileData;
+  profileStatus: string;
+  isProfileLoading: boolean;
+}
 
 const initialState: ProfileState = {
   posts: [
