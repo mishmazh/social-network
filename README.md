@@ -24,5 +24,5 @@ To test the social network, use the authorization data below:
 https://social-network.samuraijs.com/docs
 
 ## Deploy - Firebase
-https://social-network-b8319.web.app
+https://xofyerg.github.io/social-network
 
