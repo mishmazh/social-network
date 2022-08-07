@@ -10,6 +10,8 @@ To test the social network, use the authorization data below:
 2. My profile, change avatar, change status, write posts on the wall
 3. Users page, user profile
 
+![show-app](src/assets/show-app.gif)
+
 ## Stack:
 1. React
 2. Typescript
