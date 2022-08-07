@@ -5,6 +5,8 @@ To test the social network, use the authorization data below:
     Email: free@samuraijs.com
     Password: free
 
+or register new account.
+
 ## Functional:
 1. Authorization (login, captcha, validation)
 2. My profile, change avatar, change status, write posts on the wall
@@ -25,6 +27,6 @@ To test the social network, use the authorization data below:
 ### Documentation:
 https://social-network.samuraijs.com/docs
 
-## Deploy - Firebase
+## Deploy - GitHub Pages
 https://xofyerg.github.io/social-network
 
