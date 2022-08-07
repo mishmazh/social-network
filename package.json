@@ -4,7 +4,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome": "^1.1.8",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^14.2.0",
@@ -57,7 +56,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0",
-    "prettier": "^2.6.2"
+    "gh-pages": "^4.0.0"
   }
 }

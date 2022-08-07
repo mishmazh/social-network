@@ -11,7 +11,7 @@ import { v4 as uuid } from "uuid";
 interface PostsProps {
   initialValues: IPost;
   validationSchema: Yup.SchemaOf<IPostsFormValidation>;
-  onSubmit: (values: IPost) => void;
+  onSubmit: (values: IPost, { resetForm }: any) => void;
 }
 
 const Posts: FC<PostsProps> = ({

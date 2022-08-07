@@ -17,8 +17,9 @@ const PostsContainer: FC = () => {
     message: Yup.string().required("The field must not be empty"),
   });
 
-  const onSubmit = (values: IPost) => {
+  const onSubmit = (values: IPost, { resetForm }: any) => {
     addPost(values);
+    resetForm();
   };
 
   return (
